@@ -1,5 +1,6 @@
 /**
  * Canvas abstraction implementation
+ * see http://svgopen.org/2009/papers/54-SVG_vs_Canvas_on_Trivial_Drawing_Application/
  */
 var canvas = function(element) {
   var ctx = element.getContext('2d');

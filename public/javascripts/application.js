@@ -57,6 +57,7 @@ $.fn.olives = function(dots, options) {
 
   return $(this).each(function() {
     var c = canvas(this);
+    var bounds = {top: 0, left: 0, bottom: $(this).height(), right: $(this).width()};
     var center = {x:$(this).width() / 2 , y:$(this).height() / 2 };
 
     function placeDot(dot, newDots) {
@@ -76,6 +77,12 @@ $.fn.olives = function(dots, options) {
     var newDots = [];
     $.each(dots, function(i, dot) {
       var newDot = placeDot(dot, newDots);
+      var attempts = 1;
+      while (!circleWithinRectangle(newDot, bounds) && attempts < settings.maxAttempts) {
+        newDot = placeDot(dot, newDots);
+        attempts++;
+      }
+
       newDots.push(newDot);
     });
 
@@ -86,7 +93,7 @@ $.fn.olives = function(dots, options) {
 };
 
 $.fn.olives.defaults = {
-
+    maxAttempts: 10
 };
 
 /**

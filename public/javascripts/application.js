@@ -174,7 +174,7 @@ $.fn.olives.defaults = {
 $(function() {
 
   var dots = [];
-  var limit = 1 + Math.random() * 10;
+  var limit = Math.floor(1 + Math.random() * 20);
   for (var i = 0; i < limit; i++) {
     dots.push({
       key: '' + i,
@@ -184,11 +184,39 @@ $(function() {
 
   function randomValues(dots) {
     for (var i = 0; i < dots.length; i++) {
-      dots[i]['radius'] = Math.random() * 40;
+      dots[i]['value'] = Math.random() * 20;
+    }
+  }
+
+  /**
+   * Dots have values expressed as numbers, but we need to make the
+   * areas proportional. Therefore we take the sqrt.
+   * We also want to make smaller data sets take up as much
+   * room as larger ones.
+   * @param dots
+   */
+  function normalize(dots) {
+    var total = 0;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i]['radius'] = Math.sqrt(dots[i]['value']);
+      total += dots[i]['radius'];
+    }
+
+    // OK, we have a total, now scale so they mostly fit
+    // If there's one circle, 130 fits nicely into a
+    // 300px high rectangle. As there are more dots, they
+    // fit tighter and therefore can have a larger radius.
+    var idealMaxRadii = Math.max(80,110*Math.log(dots.length));
+    var scale = idealMaxRadii / total;
+//    console.log('n='+dots.length + ' idealMaxRadii='+idealMaxRadii+' total='+total+' scale='+scale+ ' ratio=' + total/scale);
+    for (var i = 0; i < dots.length; i++) {
+      dots[i]['radius'] *= scale;
+      if (dots[i]['radius'] > 0) dots[i]['radius'] = Math.max(5, dots[i]['radius']);
     }
   }
 
   randomValues(dots);
+  normalize(dots);
 
   $('#graph').css({
     border: '5px solid #333'
@@ -197,6 +225,7 @@ $(function() {
 
   $('#animate').click(function() {
     randomValues(dots);
+    normalize(dots);
     $('#graph').olives(dots);
   });
 

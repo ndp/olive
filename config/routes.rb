@@ -1,5 +1,6 @@
 Olive::Application.routes.draw do
   get "demo/index"
+  get "demo/circle"
   root :to=>'demo#index'
 
   # The priority is based upon order of creation:

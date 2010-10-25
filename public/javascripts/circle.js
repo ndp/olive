@@ -1,3 +1,10 @@
+if (typeof console == 'undefined') {
+  console = {
+    log: function() {
+    }
+  }
+}
+
 $.fn.circle = function(values, options) {
 
   var settings = $.extend({}, $.fn.circle.defaults, options);
@@ -23,11 +30,14 @@ $.fn.circle = function(values, options) {
       $.each(values, function(i, v) {
 
         var angle = startAngle + i * arc;
+        var color = v.color || '#ffffff';
+        var textColor = v.textColor || color.darken(30);
+
 
         c.context().beginPath();
         c.context().arc(center.x, center.y, outsideRadius, angle, angle + arc, false);
         c.context().arc(center.x, center.y, settings.insideRadius, angle + arc, angle, true);
-        c.context().fillStyle = v.color.lighten(10);
+        c.context().fillStyle = color.lighten(10);
         c.context().stroke();
         c.context().fill();
 
@@ -37,7 +47,7 @@ $.fn.circle = function(values, options) {
 //      c.context().shadowOffsetY = -1;
 //      c.context().shadowBlur = 0;
 //      c.context().shadowColor = "rgb(220,220,220)";
-        c.context().fillStyle = v.color.darken(20);
+        c.context().fillStyle = textColor;
         c.context().translate(center.x + Math.cos(angle + arc / 2) * settings.insideRadius,
                 center.y + Math.sin(angle + arc / 2) * settings.insideRadius);
         c.context().rotate(angle + arc / 2);// + Math.PI / 2);
@@ -47,18 +57,30 @@ $.fn.circle = function(values, options) {
         c.context().restore();
       });
 
-      c.context().beginPath();
-      c.context().arc(center.x, center.y, outsideRadius, arc/2, 2* Math.PI - arc/2, false);
-      c.context().arc(center.x, center.y, settings.insideRadius, 2* Math.PI - arc/2, arc/2, true);
-      c.context().fillStyle = '#000000';
-      c.context().globalAlpha = .3;
-      c.context().fill();
-      c.context().globalAlpha = 1;
+      if (settings.maskColor) {
+        c.context().beginPath();
+        c.context().arc(center.x, center.y, outsideRadius, arc / 2, 2 * Math.PI - arc / 2, false);
+        c.context().arc(center.x, center.y, settings.insideRadius, 2 * Math.PI - arc / 2, arc / 2, true);
+        c.context().fillStyle = settings.maskColor;
+        c.context().globalAlpha = .3;
+        c.context().fill();
+        c.context().globalAlpha = 1;
+      }
+
+      if (settings.hilightColor) {
+        c.context().beginPath();
+        c.context().arc(center.x, center.y, outsideRadius, - arc / 2, arc / 2, false);
+        c.context().arc(center.x, center.y, settings.insideRadius, arc / 2, -arc / 2, true);
+        c.context().fillStyle = settings.hilightColor;
+        c.context().globalAlpha = .3;
+        c.context().fill();
+        c.context().globalAlpha = 1;
+      }
 
 
     }
 
-    var currentAngle = -arc/2;
+    var currentAngle = -arc / 2;
     draw(currentAngle);
 
     var spinInterval = null;
@@ -102,22 +124,22 @@ $.fn.circle = function(values, options) {
 
 
       var firstAngle = currentAngle;
-      var diff =  newAngle - currentAngle;
+      var diff = newAngle - currentAngle;
 
       if (diff < -Math.PI) {
-         newAngle += 2 * Math.PI;
-         diff =  newAngle - currentAngle;
+        newAngle += 2 * Math.PI;
+        diff = newAngle - currentAngle;
       }
 
       if (Math.abs(diff) < 0.000001) {
-        console.log('nothing to do');
+        console.log('nothing to do because curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
         return;
       }
 
-      var settings = $.extend({}, { steps: Math.abs(Math.round(diff*40)), duration: 1000 }, options);
+      var settings = $.extend({}, { steps: Math.abs(Math.round(diff * 40)), duration: 500 }, options);
       var steps = settings.steps;
       var step = 0;
-//      console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta='+ diff);
+      console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
       animateTo.interval = setInterval(function() {
         currentAngle = $.easing.easeOutQuad(null, step++, firstAngle, diff, steps);
         //  old format currentAngle = $.easing.easeOutBounce(p++/steps, steps, firstAngle, diff);
@@ -170,24 +192,111 @@ $(function() {
     {p:'Phil Carswell',v:'whatever', color: randomColor()},
     {p:'Tanya Cartwheel',v:'whatever', color: randomColor()}
   ];
-  $('#circle').css({
+  $('#small_circle').css({
     border: '5px solid #333'
   }).circle(items,
     {
-      textOffset: [10,5]
+      insideRadius: 10,
+      font: '10px georgia',
+      textOffset: [3,3]
     });
 
-  $('#small_circle').circle([
-    {p:'Andy Peterson',v:'whatever', color: randomColor()},
-    {p:'Andy Peterson',v:'whatever', color: randomColor()},
-    {p:'Andy Peterson',v:'whatever', color: randomColor()},
-    {p:'Andy Peterson',v:'whatever', color: randomColor()},
-    {p:'Andy Peterson',v:'whatever', color: randomColor()}
-  ], {
-    insideRadius: 10,
-    font: '10px georgia',
-    textOffset: [3,3]
+
+  //'stage is diverge or converge'
+  var activities =
+          [
+            {name: 'paper prototyping',
+              egs: ['Are the steps of the task correct?']},
+            {name: 'hallway testing',
+              aka: "cafe testing, Usability Testing - Hallway Testing",
+              tests: 'Accuracy',
+              egs: ['How many mistakes did people make?',
+                'Can people recover from mistakes in the UI?)']},
+            {name: 'remote testing', aka: 'Usability Testing - Remote Testing',
+              egs: ['How much does the person remember afterwards or after periods of non-use?']},
+            {name: 'expert review',
+              aka: 'Usability Testing - Expert Review',
+              tests: 'emotional response',
+              egs: ['How does the person feel about the tasks completed?',
+                'Is the person confident, stressed?',
+                'Would the user recommend this system to a friend?']},
+            {name: 'eye tracking',
+              egs: ['What do people notice on the screen?']},
+            {name: 'personas',
+              tests: 'definition of user',
+              egs: ['What are the possible types of users?',
+                'What are the goals of the users?']
+            },
+            {name: 'user interviews',
+              tests: 'problems, domain knowledge, goals, tasks',
+              egs: [
+                "What is the product?",
+                "What should the product accomplish?",
+                "What is a reasonable timeframe?"
+              ]},
+            {name: 'subject matter expert interviews',
+              tests: 'complexities of domain, specialized knowledge, best practices',
+              egs: [
+                "What is the product?",
+                "What should the product accomplish?",
+                "What is a reasonable timeframe?"
+              ]},
+            {name: 'customer interviews',
+              tests: 'goals, frustrations, buying considerations',
+              egs: [
+                "How much should it cost?",
+                "What is the product?",
+                "What should the product accomplish?",
+                "What is a reasonable timeframe?"
+              ]},
+            {name: 'quantitative research',
+              tests: 'financial questions, market demographics',
+              egs: ['How much should it cost?',
+                'Are there potential users?']},
+            {name: 'surveys'},
+            {name: 'web analytics',
+              egs: ['Is page A better than page B?',
+                'How do people find our site?',
+                'What do people actually do with our site?']},
+            {name: 'focus groups',
+              tests: 'sense of brand or new domain',
+              egs: [
+                'Do we understand the brand?',
+                'Do we understand the domain?']
+            },
+            {name: 'usability testing',
+              tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
+              egs: [
+              'How easy is it to learn?',
+              'Should we have confidence to release the product?']
+            },
+            {name: 'user diaries',
+              tests: 'behavior over time',
+            egs: ['How do people behave over time?']},
+            {name: 'ethnographic interviews',
+              tests: 'extract values and goals that motivate actions'}
+          ];
+
+
+  var qs = [];
+  for (var i = 0; i < activities.length; i++) {
+    var activity = activities[i];
+    if (activity.egs) {
+      for (var e = 0; e < activity.egs.length; e++) {
+        qs.push({p:activity.egs[e], color: '#fff', textColor: '#000'});
+      }
+    }
+  }
+
+
+//  console.log('%o', qs);
+  $('#circle').circle(qs, {
+    textOffset: [10,5],
+    maskColor: '#ccc',
+    hilightColor: 'yellow',
+    font: 'bold 12px Georgia, Helvetica, Arial'
   });
+
 
   $('html').bind('keydown', function(event) {
     if (event.keyCode == 32) {
@@ -195,7 +304,7 @@ $(function() {
     } else {
       number = event.keyCode - 48;
       if (number >= 0 && number < 10) {
-        $('#circle').trigger('scrollTo', items[number].p);
+        $('#circle').trigger('scrollTo', qs[number].p);
       } else {
         $('#circle').trigger('stop');
       }
@@ -203,76 +312,6 @@ $(function() {
 
   });
 
-  'stage is diverge or converge'
-          [
-          {name: 'paper prototyping'},
-          {name: 'hallway testing',
-            aka: "cafe testing, Usability Testing - Hallway Testing",
-            tests: 'Accuracy',
-            egs: [' -- How many mistakes did people make? (And were they fatal or recoverable with the right information?)']},
-          {name: 'paper prototyping'},
-          {name: 'remote testing', aka: 'Usability Testing - Remote Testing',
-            egs: ['How much does the person remember afterwards or after periods of non-use?']},
-          {name: 'expert review',
-            aka: 'Usability Testing - Expert Review',
-            tests: 'emotional response',
-            egs: ['How does the person feel about the tasks completed?',
-              'Is the person confident, stressed?',
-              'Would the user recommend this system to a friend?']},
-          {name: 'eye tracking'},
-          {name: 'personas',
-            tests: 'definition of user',
-            egs: ['What are the possible types of users?']},
-
-          {name: 'user interviews',
-            tests: 'problems, domain knowledge, goals, tasks',
-            egs: [
-              "What's your role?",
-              "What did you do before?",
-              "Who is the product for?",
-              "What is the product?",
-              "What should the product accomplish?",
-              "How will you define success?",
-              "What is a reasonable timeframe?"
-            ]},
-          {name: 'subject matter expert interviews',
-            tests: 'complexities of domain, specialized knowledge, best practices',
-            egs: [
-              "What's your role?",
-              "What did you do before?",
-              "Who is the product for?",
-              "What is the product?",
-              "What should the product accomplish?",
-              "How will you define success?",
-              "What is a reasonable timeframe?"
-            ]},
-          {name: 'customer interviews',
-            tests: 'goals, frustrations, buying considerations',
-            egs: [
-              "What's your role?",
-              "What did you do before?",
-              "Who is the product for?",
-              "What is the product?",
-              "What should the product accomplish?",
-              "How will you define success?",
-              "What is a reasonable timeframe?"
-            ]},
-          {name: 'quantitative research',
-            tests: 'financial questions, market demographics'},
-          {name: 'eye tracking'},
-          {name: 'surveys'},
-          {name: 'web analytics'},
-          {name: 'focus groups',
-            tests: 'sense of brand or new domain'},
-          {name: 'usability testing',
-            tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem"
-          },
-          {name: 'user diaries',
-            tests: 'behavior over time'},
-          {name: 'qualitative methods'},
-          {name: 'ethnographic interviews',
-            tests: 'extract values and goals that motivate actions'}
-          ]
 
 });
 

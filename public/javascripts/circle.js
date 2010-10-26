@@ -1,10 +1,3 @@
-if (typeof console == 'undefined') {
-  console = {
-    log: function() {
-    }
-  }
-}
-
 $.fn.circle = function(values, options) {
 
   var settings = $.extend({}, $.fn.circle.defaults, options);
@@ -18,7 +11,7 @@ $.fn.circle = function(values, options) {
 
     var arc = Math.PI / values.length * 2;
     var outsideRadius = radius - 10;
-    var c = canvas(this);
+    var c = canvasWrapper(this);
 
     function draw(startAngle) {
 
@@ -173,33 +166,6 @@ function randomColor() {
 
 
 $(function() {
-
-//    dots.push({radius: Math.random() * 80 + 3, color:  });
-
-  var items = [
-    {p:'Andy Peterson',v:'whatever', color: randomColor()},
-    {p:'Aila Peterson',v:'whatever', color: randomColor()},
-    {p:'Annika Peterson',v:'whatever', color: randomColor()},
-    {p:'Priita Peterson',v:'whatever', color: randomColor()},
-    {p:'Richard Peterson',v:'whatever', color: randomColor()},
-    {p:'Sue Peterson',v:'whatever', color: randomColor()},
-    {p:'Ben Peterson',v:'whatever', color: randomColor()},
-    {p:'Dan Peterson',v:'whatever', color: randomColor()},
-    {p:'Julio Peterson',v:'whatever', color: randomColor()},
-    {p:'Jennifer Peterson',v:'whatever', color: randomColor()},
-    {p:'Tiia Carswell',v:'whatever', color: randomColor()},
-    {p:'Juri',v:'whatever', color: randomColor()},
-    {p:'Phil Carswell',v:'whatever', color: randomColor()},
-    {p:'Tanya Cartwheel',v:'whatever', color: randomColor()}
-  ];
-  $('#small_circle').css({
-    border: '5px solid #333'
-  }).circle(items,
-    {
-      insideRadius: 10,
-      font: '10px georgia',
-      textOffset: [3,3]
-    });
 
 
   //'stage is diverge or converge'

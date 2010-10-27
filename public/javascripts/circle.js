@@ -95,9 +95,9 @@ $.fn.wheel = function(values, options) {
         c.context().globalAlpha = .3;
         c.context().fill();
         c.context().globalAlpha = 1;
-        c.context().lineWidth = 3;
-        c.context().strokeStyle = '#666';
-        c.context().stroke();
+//        c.context().lineWidth = 3;
+//        c.context().strokeStyle = '#666';
+//        c.context().stroke();
       }
 
 
@@ -336,7 +336,7 @@ $(function() {
   var items = [];
   for (var q in questions) {
     var c = randomColor();
-    items.push({p:q, color: c.saturate(30).darken(30), textColor: c.lighten(30), data: questions[q]});
+    items.push({p:q, color: c.saturate(30).darken(20), textColor: c.lighten(50), data: questions[q]});
   }
 
 

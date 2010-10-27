@@ -48,8 +48,6 @@ $.fn.wheel = function(values, options) {
 
       c.clearRect(0, 0, width, height);
       c.context().font = settings.font;
-      c.context().strokeStyle = "#dddddd";
-      c.context().lineWidth = 1;
 
       $.each(values, function(i, v) {
 
@@ -62,6 +60,8 @@ $.fn.wheel = function(values, options) {
         c.context().arc(center.x, center.y, outsideRadius, angle, angle + arc, false);
         c.context().arc(center.x, center.y, settings.insideRadius, angle + arc, angle, true);
         c.context().fillStyle = color.lighten(10);
+        c.context().strokeStyle = "#dddddd";
+        c.context().lineWidth = 1;
         c.context().stroke();
         c.context().fill();
 
@@ -89,12 +89,15 @@ $.fn.wheel = function(values, options) {
 
       if (settings.hilightColor) {
         c.context().beginPath();
-        c.context().arc(center.x, center.y, outsideRadius, - arc / 2, arc / 2, false);
-        c.context().arc(center.x, center.y, settings.insideRadius, arc / 2, -arc / 2, true);
+        c.context().arc(center.x, center.y, outsideRadius + 2, - arc / 2, arc / 2, false);
+        c.context().arc(center.x, center.y, settings.insideRadius-2, arc / 2, -arc / 2, true);
         c.context().fillStyle = settings.hilightColor;
         c.context().globalAlpha = .3;
         c.context().fill();
         c.context().globalAlpha = 1;
+        c.context().lineWidth = 3;
+        c.context().strokeStyle = '#666';
+        c.context().stroke();
       }
 
 
@@ -332,7 +335,8 @@ $(function() {
 
   var items = [];
   for (var q in questions) {
-    items.push({p:q, color: '#fff', textColor: '#000', data: questions[q]});
+    var c = randomColor();
+    items.push({p:q, color: c.saturate(30).darken(30), textColor: c.lighten(30), data: questions[q]});
   }
 
 
@@ -351,7 +355,7 @@ $(function() {
 //  ];
   $('#circle').bind('focusOn',
                    function(e, item) {
-                     $('#answers').empty();
+                     $('#answers').empty().css({color: item.textColor,backgroundColor: item.color});
                      $('<h3>').text(item.p).appendTo('#answers');
                      var $names = $('<ul>');
                      var data = item.data;
@@ -363,8 +367,9 @@ $(function() {
 
                    }).wheel(items, {
                                      textOffset: [10,5],
-                                     maskColor: '#ccc',
-                                     hilightColor: 'yellow',
+                                       insideRadius: 80,
+                                     maskColor: 'transparent',
+                                     hilightColor: 'transparent',
                                      font: 'bold 12px Georgia, Helvetica, Arial'
                                    });
 

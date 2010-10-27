@@ -39,7 +39,8 @@ $.fn.wheel = function(values, options) {
 
     function drawWheel() {
 
-      var focusedIndex = Math.round(((-rotationAngle + 2 * Math.PI) / arc) % values.length);
+      // trigger even if new item is focused
+      var focusedIndex = Math.round(-rotationAngle / arc + 2 * values.length) % values.length;
       if (focusedIndex != lastFocusedIndex) {
         $this.trigger('focusOn', [values[focusedIndex], focusedIndex]);
         lastFocusedIndex = focusedIndex;
@@ -71,7 +72,7 @@ $.fn.wheel = function(values, options) {
                 center.y + Math.sin(angle + arc / 2) * settings.insideRadius);
         c.context().rotate(angle + arc / 2);// + Math.PI / 2);
         var text = v.p;
-        c.context().fillText(text, settings.textOffset[0], settings.textOffset[1]);
+        c.context().fillText(text, settings.textOffset[0], settings.textOffset[1], outsideRadius - settings.insideRadius - settings.textOffset[0] - 5);
         //-c.context().measureText(text).width
         c.context().restore();
       });
@@ -126,6 +127,18 @@ $.fn.wheel = function(values, options) {
     $this.bind('stop', function(event) {
       console.log('stop');
       stopInterval();
+    });
+
+    $this.bind('next', function() {
+      var nextIndex = ((lastFocusedIndex || 0) + 1) % values.length;
+      var newAngle = -(nextIndex * arc);
+      animateTo(newAngle);
+    });
+
+    $this.bind('prev', function() {
+      var nextIndex = ((lastFocusedIndex || 0) - 1 + values.length) % values.length;
+      var newAngle = -(nextIndex * arc);
+      animateTo(newAngle);
     });
 
     $this.bind('spinTo', function(event, dest) {
@@ -202,46 +215,43 @@ $(function() {
           [
             {name: 'paper prototyping',
               egs: ['Are the steps of the task correct?',
-                'Will users understand our approach to solving the problem?']},
+                "Is the terminology right?",
+                'Will users understand our approach to solving the problem?'
+              ]},
             {name: 'hallway testing',
               aka: "cafe testing, Usability Testing - Hallway Testing",
               tests: 'Accuracy',
               egs: ['',
+                "Is the terminology right?",
                 '']},
-            {name: 'remote testing', aka: 'Usability Testing - Remote Testing',
-              egs: ['How much does the person remember afterwards or after periods of non-use?']},
-            {name: 'expert review',
-              aka: 'Usability Testing - Expert Review',
-              tests: 'emotional response',
-              egs: ['How does the person feel about the tasks completed?',
-                'Is the person confident, stressed?',
-                'Would the user recommend this system to a friend?']},
             {name: 'eye tracking',
               egs: ['What do people notice on the screen?']},
             {name: 'personas',
               tests: 'definition of user',
-              egs: ['What are the possible types of users?',
-                'What are the goals of the users?']
+              egs: ['What are the types of users?',
+                'What are the goals and perspective of the users?']
             },
             {name: 'user interviews',
               tests: 'problems, domain knowledge, goals, tasks',
               egs: [
-                "What is the product?",
+                      "Is the terminology right?",
                 "What should the product accomplish?",
-                "What is a reasonable timeframe?"
+                "What specific problems should the product solve?",
+                "What is a reasonable time frame?"
               ]},
             {name: 'subject matter expert interviews',
               tests: 'complexities of domain, specialized knowledge, best practices',
               egs: [
-                "What is the product?",
+                "Is the terminology right?",
+                "What specific problems should the product solve?",
                 "What should the product accomplish?",
-                "What is a reasonable timeframe?"
+                "What is a reasonable time frame?"
               ]},
             {name: 'customer interviews',
               tests: 'goals, frustrations, buying considerations',
               egs: [
                 "How much should it cost?",
-                "What problems should the product solve?",
+                "What specific problems should the product solve?",
                 "What is a reasonable time frame?"
               ]},
             {name: 'quantitative research',
@@ -257,8 +267,10 @@ $(function() {
             {name: 'web analytics',
               egs: [
                 'Is page A better than page B?',
-                'How do people actually finding our site?',
-                'What do people actually do with our site?']},
+                'What links and pages aren\'t used?',
+                'How do people actually find our site?',
+                'What do people actually do on our site?'
+              ]},
             {name: 'focus groups',
               tests: 'sense of brand or new domain',
               egs: [
@@ -268,8 +280,27 @@ $(function() {
             {name: 'usability testing',
               tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
               egs: [
+                'What are the usability problems?',
                 'How easy is it to learn?',
-                'It really isn\'t usable?']
+                'Is the usability that bad?',
+                "Is the terminology right?",
+                'Can users accomplish X in time Y?',
+                'Do users understand how to use it?',
+                'Can users can make the right choice and explain the why?',
+                'What areas need the most attention?'
+              ]
+            },
+            {
+              name: 'remote automated user testing',
+              egs: [
+                'What are the usability problems?',
+                "Can users accomplish a goal within a scenario?",
+                'Is the usability that bad?',
+                "Is the terminology right?",
+                'Do users understand how to use it?',
+                'Can users accomplish X in time Y?',
+                "Can users complete a task?"
+              ]
             },
             {name: 'user diaries',
               tests: 'behavior over time',
@@ -307,27 +338,28 @@ $(function() {
 
 //  console.log('%o', qs);
 //  items = [
-//    {p: '0 zero'},
-//    {p: '1 one'},
-//    {p: '2'},
-//    {p: '3'},
-//    {p: '4'},
-//    {p: '5 five'},
-//    {p: '6'},
-//    {p: '7'},
-//    {p: '8 eight'},
-//    {p: '9'}
+//    {p: '0 zero', data: {}},
+//    {p: '1 one', data: {}},
+//    {p: '2', data: {}},
+//    {p: '3', data: {}},
+//    {p: '4', data: {}},
+//    {p: '5 five', data: {}},
+//    {p: '6', data: {}},
+//    {p: '7', data: {}},
+//    {p: '8 eight', data: {}},
+//    {p: '9', data: {}}
 //  ];
   $('#circle').bind('focusOn',
                    function(e, item) {
-                     names = '';
+                     $('#answers').empty();
+                     $('<h3>').text(item.p).appendTo('#answers');
+                     var $names = $('<ul>');
                      var data = item.data;
-                     for (var i =0; i<data.length; i++) {
-                       names += data[i].name;
+                     for (var i = 0; i < data.length; i++) {
+                       $('<li>').text(data[i].name).appendTo($names);
                      }
-                     $('#answers').text(names);
-                     console.log('%o', item.data);
-
+                     $names.appendTo('#answers');
+                     console.log('%o', item);
 
                    }).wheel(items, {
                                      textOffset: [10,5],
@@ -340,12 +372,16 @@ $(function() {
   $('html').bind('keydown', function(event) {
     if (event.keyCode == 32) {
       $('#circle').trigger('toggle');
+    } else if (event.keyCode == 61 || event.keyCode == 107 || event.keyCode == 40) {
+      $('#circle').trigger('next');
+    } else if (event.keyCode == 38 || event.keyCode == 109) {
+      $('#circle').trigger('prev');
     } else {
       number = event.keyCode - 48;
       if (number >= 0 && number < 10) {
         $('#circle').trigger('spinTo', items[number].p);
       } else {
-        $('#circle').trigger('stop');
+        console.log(event.keyCode);
       }
     }
 

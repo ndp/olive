@@ -1,21 +1,23 @@
 var question_key = {
   terminology: 'Is our terminology correct?',
-  right_problem: 'What problems should the product solve?',
-  user_types: 'What are the major types of users?',
-  task_steps: 'What are the steps of the task?',
-  right_approach: 'Will users understand our approach?',
-  varying_perspectives: 'What varying perspectives affect product usage?',
-  varying_goals: 'What varying goals affect product usage?',
-  workflow: 'What is the workflow users follow to perform their tasks?',
-  understand_attitudes: 'What are the users\' attitudes, beliefs, desires, and experiences?',
-  right_ia: 'What should the categories/IA/structure be?',
   understand_domain: 'Do we understand the domain?',
   understand_goals: "What are the user's goals?",
-  understand_product_problems: 'What are the usability problems?',  //What areas have the worst usability problems?
+  understand_workflow: 'What are the steps of the task(s)?',
+  understand_process: 'How does a user achieve goals?',
+  understand_domain_problem: 'What problems should the product solve?',
+  understand_roles: 'Who does/helps with the tasks?',
+  understand_user_types: 'What are the major types of users?',
+  understand_attitudes: 'What are the users\' attitudes, beliefs, desires, and experiences?',
+  // What personal, social and cultural characteristics do users bring to the tasks?
+  understand_environment: 'How are users influenced by their physical environment?',
+  varying_perspectives: 'What varying perspectives affect product usage?',
+  understand_varying_goals: 'What varying goals affect product usage?',
+  right_approach: 'Will users understand our approach/ideas/approach?',
+  right_ia: 'What should the categories/IA/structure be?',
+  right_task_ui: 'Can users complete a task?',
+  right_ui: 'Do users understand how to use it?',
+  right_usability: 'What are the usability problems?',  //What areas have the worst usability problems?
   define_cost: 'How much should it cost?',
-//    questions: 'xxx',
-//    questions: 'xxx',
-//    questions: 'xxx',
 //    questions: 'xxx',
 //    questions: 'xxx',
   satisfied: 'How satisfied are users with your site?'
@@ -34,10 +36,10 @@ var activities =
             name: 'prototyping (paper, higher-fidelity)',
             category: ['design','test'],
             egs: [
-              'task_steps',
+              'understand_workflow',
               "terminology",
               'right_approach',
-              'right_problem'
+              'understand_domain_problem'
             ],
             ref: 'http://www.usability.gov/methods/design_site/prototyping.html',
             effort: 2
@@ -48,9 +50,9 @@ var activities =
             tests: 'definition of user',
             egs: [
               'understand_attitudes',
-              'user_types',
+              'understand_user_types',
               'varying_perspectives',
-              'varying_goals',
+              'understand_varying_goals',
               ''],
             ref: 'http://www.usability.gov/methods/analyze_current/personas.html',
             effort: 3
@@ -59,12 +61,13 @@ var activities =
             name: 'contextual interview',
             tests: 'problems, domain knowledge, goals, tasks',
             egs: [
+              'understand_environment',
               'varying_perspectives',
-              'varying_goals',
+              'understand_varying_goals',
               "terminology",
-              "right_problem",
-              "What is a reasonable time frame?",
-              'Who does/helps with the tasks?'
+              "understand_domain_problem",
+              //"What is a reasonable time frame?",
+              'understand_roles'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/contextual.html',
             effort: 2
@@ -73,17 +76,18 @@ var activities =
             tests: 'complexities of domain, specialized knowledge, best practices',
             egs: [
               "terminology",
-              "right_problem" //              "What is a reasonable time frame?"
+              "understand_domain_problem" //              "What is a reasonable time frame?"
             ],
             effort: 2},
           {name: 'customer interviews',
             tests: 'goals, frustrations, buying considerations',
             egs: [
               'varying_perspectives',
-              'varying_goals',
+              'understand_environment',
+              'understand_varying_goals',
               "define_cost",
-              "right_problem",
-              "What is a reasonable time frame?"
+              "understand_domain_problem",
+              "What is the users\' time frame?"
             ],
             effort: 2
           },
@@ -91,7 +95,7 @@ var activities =
             tests: 'financial questions, market demographics',
             egs: [
               'define_cost',
-              'Are there potential users?'
+              'Are there really potential users?'
             ],
             effort: 2
           },
@@ -109,12 +113,11 @@ var activities =
             category: ['requirements','design'],
             egs: [
               'varying_perspectives',
-              'varying_goals',
+              'understand_varying_goals',
               'Do users understand the brand?',
               'understand_domain',
               'understand_attitudes',
-              'What are users\' reactions to ideas?',
-              'What are users\' reactions to prototypes?'
+              'right_approach'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/focus.html',
             effort: 3
@@ -134,11 +137,10 @@ var activities =
             category: ['requirements'],
             egs: [
               'understand_goals',
-              'How does a user achieve goals?',
-              'What personal, social and cultural characteristics do users bring to the tasks?',
-              'How are users influenced by their physical environment?',
-              'How do users think about their work?',
-              'workflow'
+              'understand_process',
+              'understand_attitudes',
+              'understand_environment',
+              'understand_workflow'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/analysis.html',
             effort: 2
@@ -147,14 +149,14 @@ var activities =
             category: ['requirements','design','test'],
             tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
             egs: [
-              'understand_product_problems',
+              'right_usability',
               'How easy is it to learn?',
               'Is the usability that bad?',
               "terminology",
               'Can users accomplish X in time Y?',
               'What is the error rate?',
-              'Do users understand how to use it?',
-              'Can users can make the right choice and explain the why?'
+              'right_ui',
+              'Can users can make the right choice and explain why?'
             ],
             ref: 'http://www.usability.gov/methods/test_refine/learnusa/index.html',
             effort: 2
@@ -162,13 +164,13 @@ var activities =
           {
             name: 'remote automated user testing',
             egs: [
-              'understand_product_problems',
-              "Can users achieve a goal within a scenario?",
+              'right_usability',
+//              "Can users achieve a goal within a scenario?",
+              'right_ui',
               'Is the usability that bad?',
               "terminology",
-              'Do users understand how to use it?',
               'Can users accomplish X in time Y?',
-              "Can users complete a task?"
+              "right_task_ui"
             ],
             effort: 1
           },
@@ -176,7 +178,7 @@ var activities =
             name: 'heuristic evaluations',
             category: ['requirements','test'],
             eg: [
-              'understand_product_problems',
+              'right_usability',
               'What areas need the most attention?'
             ],
             ref: 'http://www.usability.gov/methods/test_refine/heuristic.html',
@@ -197,11 +199,10 @@ var activities =
             category: ['requirements','design','test'],
             egs: [
               'What are the demographics of the users?',
-              'What are the users\' opinions of your site?',
+              'What are the users\' opinions of your site and suggestions?',
               'What information are users looking for?',
               'satisfied',
-              'What frustrations have users had with your site?',
-              'Do users have any ideas or suggestions for improvements?'
+              'What frustrations have users had with your site?'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
             effort: 2
@@ -210,11 +211,10 @@ var activities =
             name: 'support forums (yours and competitors)',
             category: ['requirements','design','test'],
             egs: [
-              'What are the users\' opinions of your site?',
+              'What are the users\' opinions of your site and suggestions?',
               'What information are users looking for?',
               'satisfied',
-              'What frustrations have users had with your site?',
-              'Do users have any suggestions for improvements?'
+              'What frustrations have users had with your site?'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
             effort: 1

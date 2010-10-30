@@ -22,8 +22,26 @@ $.fn.wheel = function(values, options) {
     var currentItem = 0;
     var rotationAngle = 0;
 
-    $this.click(function() {
-       alert('click')
+    $this.click(function(event) {
+
+      function ptToAngle(pt) {
+        var angle = Math.atan(-pt.y / pt.x);
+        if (pt.x < 0 && pt.y > 0) angle = Math.PI + angle;
+        if (pt.x < 0 && pt.y < 0) angle += Math.PI;
+        if (pt.x > 0 && pt.y < 0) angle = 2 * Math.PI + angle;
+        return angle;
+      }
+      pt = { x: event.layerX - center.x, y: event.layerY - center.y };
+      var angle = ptToAngle(pt);
+      angle = angle + rotationAngle;
+      if (angle < 0) angle += 2 * Math.PI;
+
+      function angleToItemIndex(angle) {
+           return (values.length + values.length - Math.round(angle / arc)) % values.length;
+      }
+
+      var itemIndex = angleToItemIndex(angle);
+      $this.trigger('clickOn', [values[itemIndex], itemIndex]);
     });
 
     function stringToItemIndex(s) {

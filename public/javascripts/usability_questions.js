@@ -12,12 +12,14 @@ var question_key = {
   understand_environment: 'How are users influenced by their physical environment?',
   varying_perspectives: 'What varying perspectives affect product usage?',
   understand_varying_goals: 'What varying goals affect product usage?',
-  right_approach: 'Will users understand our approach/ideas/approach?',
+  test_approach: 'Will users understand our approach/ideas/approach?',
   right_ia: 'What should the categories/IA/structure be?',
   right_task_ui: 'Can users complete a task?',
   right_ui: 'Do users understand how to use it?',
   right_usability: 'What are the usability problems?',  //What areas have the worst usability problems?
   define_cost: 'How much should it cost?',
+  understand_product_suggestions: 'What are the users\' opinions of your site and suggestions?',
+  understand_product_frustrations: 'What frustrations have users had with your site?',
 //    questions: 'xxx',
 //    questions: 'xxx',
   satisfied: 'How satisfied are users with your site?'
@@ -38,7 +40,7 @@ var activities =
             egs: [
               'understand_workflow',
               "terminology",
-              'right_approach',
+              'test_approach',
               'understand_domain_problem'
             ],
             ref: 'http://www.usability.gov/methods/design_site/prototyping.html',
@@ -117,7 +119,7 @@ var activities =
               'Do users understand the brand?',
               'understand_domain',
               'understand_attitudes',
-              'right_approach'
+              'test_approach'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/focus.html',
             effort: 3
@@ -199,10 +201,10 @@ var activities =
             category: ['requirements','design','test'],
             egs: [
               'What are the demographics of the users?',
-              'What are the users\' opinions of your site and suggestions?',
+              'understand_product_suggestions',
               'What information are users looking for?',
               'satisfied',
-              'What frustrations have users had with your site?'
+              'understand_product_frustrations'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
             effort: 2
@@ -211,10 +213,10 @@ var activities =
             name: 'support forums (yours and competitors)',
             category: ['requirements','design','test'],
             egs: [
-              'What are the users\' opinions of your site and suggestions?',
+              'understand_product_suggestions',
               'What information are users looking for?',
               'satisfied',
-              'What frustrations have users had with your site?'
+              'understand_product_frustrations'
             ],
             ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
             effort: 1

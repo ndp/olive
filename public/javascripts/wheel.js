@@ -46,7 +46,7 @@ $.fn.wheel = function(values, options) {
       // trigger even if new item is focused
       var focusedIndex = Math.round(-rotationAngle / arc + 2 * values.length) % values.length;
       if (focusedIndex != lastFocusedIndex) {
-        $this.trigger('focusOn', [values[focusedIndex], focusedIndex]);
+        $this.trigger('passBy', [values[focusedIndex], focusedIndex]);
         lastFocusedIndex = focusedIndex;
       }
 
@@ -132,8 +132,8 @@ $.fn.wheel = function(values, options) {
     });
 
     $this.bind('stop', function(event) {
-      console.log('stop');
       stopInterval();
+      $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
     });
 
     $this.bind('next', function() {
@@ -190,6 +190,7 @@ $.fn.wheel = function(values, options) {
         if (step >= steps) {
           stopInterval();
           drawWheel();
+          $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
           rotationAngle = newAngle;
         }
       }, settings.duration / steps);
@@ -198,8 +199,11 @@ $.fn.wheel = function(values, options) {
 
     return this;
 
-  });
-};
+  }
+          )
+          ;
+}
+        ;
 
 
 $.fn.wheel.defaults = {

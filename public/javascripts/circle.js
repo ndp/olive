@@ -1,8 +1,6 @@
 $(function() {
 
 
-
-
   var questions = {};
   for (var i = 0; i < activities.length; i++) {
     var activity = activities[i];
@@ -24,7 +22,7 @@ $(function() {
   for (var q in questions) {
     var data = questions[q];
     if (!data[0].color) {
-      var c = ColorFactory.randomHue(20,40);
+      var c = ColorFactory.randomHue(20, 40);
       data[0].color = c;
     }
     items.push({p:q, backgroundColor: data[0].color, color: data[0].color.lighten(50),
@@ -48,27 +46,36 @@ $(function() {
 //  ];
   $('#circle').bind('focusOn',
                    function(e, item) {
-                     $('#answers').stop(true, true).fadeOut('fast', function() {
-                       $('#answers').empty().fadeIn('slow').css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
-                       $('<h6>').text('If your questions are like...').appendTo('#answers');
-                       $('<h3>').html('&ldquo;' + item.p + '&rdquo;').appendTo('#answers');
-                       $('<h6>').text('try...').appendTo('#answers');
-                       var $names = $('<ul>');
-                       var data = item.data;
-                       for (var i = 0; i < data.length; i++) {
-                         $('<li>').text(data[i].name).appendTo($names);
-                       }
-                       $names.appendTo('#answers');
-                     });
-                     console.log('%o', item);
+                     $('#answers').empty().fadeIn('slow').css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
+                     $('<h6>').text('If your questions are like...').appendTo('#answers');
+                     $('<h3>').html('&ldquo;' + item.p + '&rdquo;').appendTo('#answers');
+                     $('<h6>').text('try...').appendTo('#answers');
+                     var $names = $('<ul>');
+                     var data = item.data;
+                     for (var i = 0; i < data.length; i++) {
+                       $('<li>').text(data[i].name).appendTo($names);
+                     }
+                     $names.appendTo('#answers');
 
-                   }).wheel(items, {
-                                     textOffset: [10,5],
-                                     insideRadius: 80,
-                                     maskColor: 'transparent',
-                                     hilightColor: 'transparent',
-                                     font: 'bold 12px Georgia, Helvetica, Arial'
-                                   });
+                   });
+  $('#circle').bind('passBy',
+                   function(e, item) {
+                     $('#answers').fadeOut('fast'); //stop(false, true).
+                     console.log('%o', item);
+                   });
+  $('#circle').bind('clickOn',
+                   function(e, item) {
+                     $(this).trigger('spinTo', item.p);
+                     console.log('click on %o', item);
+
+                   });
+  $('#circle').wheel(items, {
+    textOffset: [10,5],
+    insideRadius: 80,
+//    maskColor: 'transparent',
+//    hilightColor: 'transparent',
+    font: 'bold 12px Georgia, Helvetica, Arial'
+  });
 
 
   $('html').bind('keydown', function(event) {

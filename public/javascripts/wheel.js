@@ -35,6 +35,7 @@ $.fn.wheel = function(values, options) {
       var angle = ptToAngle(pt);
       angle = angle + rotationAngle;
       if (angle < 0) angle += 2 * Math.PI;
+      if (angle < 0) angle += 2 * Math.PI;
 
       function angleToItemIndex(angle) {
            return (values.length + values.length - Math.round(angle / arc)) % values.length;
@@ -177,6 +178,7 @@ $.fn.wheel = function(values, options) {
       stopInterval();
 
       if (rotationAngle < 0) rotationAngle += 2 * Math.PI;
+      if (rotationAngle >= 2*Math.PI) rotationAngle -= 2 * Math.PI;
       if (newAngle < 0) newAngle += 2 * Math.PI;
 
 
@@ -197,7 +199,7 @@ $.fn.wheel = function(values, options) {
         return;
       }
 
-      var settings = $.extend({}, { steps: Math.abs(Math.round(diff * 20)), duration: 1000 }, options);
+      var settings = $.extend({}, { steps: Math.abs(Math.round(diff * 10)), duration: 600 }, options);
       var steps = settings.steps;
       var step = 0;
       console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);

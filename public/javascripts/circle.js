@@ -128,7 +128,7 @@ $(function() {
 
     Csster.style({
         body: {
-            backgroundColor: '#ebebeb'
+            backgroundColor: '#000000'
         },
         '#circle': { cursor: 'pointer'},
         h1: {
@@ -146,7 +146,9 @@ $(function() {
                 display: 'block',
                 font: '20px/30px georgia',
                 letterSpacing: 0,
+                color: 'white',
                 '&.copyright': {
+                    color: 'black',
                     fontSize: 12
                 }
             }

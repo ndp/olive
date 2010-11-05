@@ -34,9 +34,7 @@ $.fn.wheel = function(values, options) {
 
             pt = { x: event.layerX - center.x, y: event.layerY - center.y };
             var angle = ptToAngle(pt);
-            angle = angle + rotationAngle;
-            if (angle < 0) angle += 2 * Math.PI;
-            if (angle < 0) angle += 2 * Math.PI;
+            angle = normalizeAngle(angle + rotationAngle);
 
             function angleToItemIndex(angle) {
                 return (values.length + values.length - Math.round(angle / arc)) % values.length;
@@ -184,12 +182,17 @@ $.fn.wheel = function(values, options) {
             animateTo(newAngle);
         });
 
+        function normalizeAngle(a) {
+            while (a < 0) a += 2 * Math.PI;
+            while (a > Math.PI*2) a -= 2 * Math.PI;
+            return a;
+        }
+
         function animateTo(newAngle, options) {
             stopInterval();
 
-            if (rotationAngle < 0) rotationAngle += 2 * Math.PI;
-            if (rotationAngle >= 2 * Math.PI) rotationAngle -= 2 * Math.PI;
-            if (newAngle < 0) newAngle += 2 * Math.PI;
+            rotationAngle = normalizeAngle(rotationAngle);
+            newAngle = normalizeAngle(newAngle);
 
 
             var firstAngle = rotationAngle;
@@ -221,7 +224,7 @@ $.fn.wheel = function(values, options) {
                     stopInterval();
                     drawWheel();
                     $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
-                    rotationAngle = newAngle;
+                    rotationAngle = normalizeAngle(newAngle);
                 }
             }, settings.duration / steps);
         }

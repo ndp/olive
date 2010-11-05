@@ -116,7 +116,8 @@ var activities =
                     'What links and pages aren\'t used or seen?',
                     'What do users actually do/find on our site?'
                 ],
-                effort: 1
+                effort: 1,
+                ref: 'http://www.crazyegg.com/'
             },
             {
                 name: 'web analytics',
@@ -126,7 +127,8 @@ var activities =
                     'What do users actually do/find on our site?',
                     'Can different variants increase click-through (A v. B)?'
                 ],
-                effort: 1
+                effort: 1,
+                ref: 'http://www.google.com/analytics/'
             },
             {name: 'focus groups',
                 tests: 'sense of brand or new domain',
@@ -193,6 +195,7 @@ var activities =
                     'right_ui_timed',
                     "right_task_ui"
                 ],
+                ref: 'http://usertesting.com',
                 effort: 1
             },
             {
@@ -237,7 +240,7 @@ var activities =
                     'satisfied',
                     'understand_product_frustrations'
                 ],
-                ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
+                ref: 'http://getsatisfaction.com',
                 effort: 1
             }
 //            {name: 'user diaries',

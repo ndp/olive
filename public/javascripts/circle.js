@@ -1,27 +1,10 @@
 $(function() {
 
-
-    // create questions hash of question => [activity[0], activity[1]...]
-    var questions = {};
-    for (var i = 0; i < activities.length; i++) {
-        var activity = activities[i];
-        if (activity.egs) {
-            for (var e = 0; e < activity.egs.length; e++) {
-                var q = activity.egs[e];
-                if (q.length > 0) {
-                    if (!questions[q]) {
-                        questions[q] = [];
-                    }
-                    questions[q].push(activity);
-                }
-            }
-        }
-    }
-
+    var uxQuestions = generateUXQuestions();
 
     var items = [];
-    for (var q in questions) {
-        var acts = questions[q];
+    for (var q in uxQuestions) {
+        var acts = uxQuestions[q];
         if (!acts[0].color) {
             var c = ColorFactory.randomHue(20, 40);
             acts[0].color = c;
@@ -37,7 +20,7 @@ $(function() {
             'requirements,design,test': '#8F8FBC'
         }[acts[0].category] || '#000000'.saturate(-40).lighten(20);
         var item = {
-            p:q,
+            label:q,
             backgroundColor: color,
             color: color.saturate(-30).lighten(70),
             bubbleBackgroundColor: color,
@@ -65,24 +48,11 @@ $(function() {
     items = shuffle(items);
 
 
-//  console.log('%o', qs);
-//  items = [
-//    {p: '0 zero', data: {}},
-//    {p: '1 one', data: {}},
-//    {p: '2', data: {}},
-//    {p: '3', data: {}},
-//    {p: '4', data: {}},
-//    {p: '5 five', data: {}},
-//    {p: '6', data: {}},
-//    {p: '7', data: {}},
-//    {p: '8 eight', data: {}},
-//    {p: '9', data: {}}
-//  ];
     $('#circle').bind('focusOn',
                      function(e, item) {
                          $('#answers').empty().fadeIn('slow').css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
                          $('<h6>').text('If your questions are like...').appendTo('#answers');
-                         $('<h3>').html('&ldquo;' + item.p + '&rdquo;').appendTo('#answers');
+                         $('<h3>').html('&ldquo;' + item.label + '&rdquo;').appendTo('#answers');
                          $('<h6>').text('try...').appendTo('#answers');
                          var $names = $('<ul>');
                          var data = item.data;
@@ -98,7 +68,7 @@ $(function() {
                                 $('#answers').fadeOut('fast');
                             }).bind('clickOn',
                                    function(e, item) {
-                                       $(this).trigger('spinTo', item.p);
+                                       $(this).trigger('spinTo', item.label);
                                    }).wheel(items, {
                                                        textOffset: [10,5],
                                                        insideRadius: 80,
@@ -118,7 +88,7 @@ $(function() {
         } else {
             number = event.keyCode - 48;
             if (number >= 0 && number < 10) {
-                $('#circle').trigger('spinTo', items[number].p);
+                $('#circle').trigger('spinTo', items[number].text);
             } else {
                 console.log(event.keyCode);
             }
@@ -128,7 +98,7 @@ $(function() {
 
     Csster.style({
         body: {
-            backgroundColor: '#000000'
+            backgroundColor: '#555'
         },
         '#circle': { cursor: 'pointer'},
         h1: {

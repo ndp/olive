@@ -1,3 +1,31 @@
+/**
+ * Draws a "wheel" of equal size wedges, colored and labelled as indicated by values passed in.
+ * There is the concept of a "current" wedge, which is the one on the right side (whose text
+ * is upright).
+ *
+ * The following events are accepted:
+ *   next -- rotate clockwise to the next wedge
+ *   prev - rotate counterclockwise to the previous (next) wedge
+ *   spinTo(index) -- rotate to the given wedge
+ *   spin -- start spinning clockwise
+ *   stop -- stop spinning, if we're spinning
+ *   toggle -- spin or stop, depending on current state
+ *
+ * The following events are broadcast:
+ *   clickOn(value, index) -- when the user clicks on a wedge
+ *   passBy(value, index) -- when a given value becomes the "current" wedge
+ *
+ * @param values array of value objects, where each value has the following
+ *               properties:
+ *                 label: text to draw
+ *                 backgroundColor: color of slice of the while (default white)
+ *                 color: color of text (default 30% darker than the background color)
+ * @param options: hash of options
+ *        insideRadius- distance from center to beginning of wedge, in px
+ *        font -- canvas acceptable font style, eg. '12px Verdana'
+ *        textOffset -- [x,y] array of how to offset the labels bfore drawing them
+ */
+
 $.fn.wheel = function(values, options) {
 
     var settings = $.extend({}, $.fn.wheel.defaults, options);
@@ -46,7 +74,7 @@ $.fn.wheel = function(values, options) {
 
         function stringToItemIndex(s) {
             for (var i = 0; i < values.length; i++) {
-                if (s == values[i].p)  return i;
+                if (s == values[i].label)  return i;
             }
             return null;
         }
@@ -95,7 +123,7 @@ $.fn.wheel = function(values, options) {
                 c.context().rotate(angle + arc / 2);// + Math.PI / 2);
 
                 var availableTextWidth = outsideRadius - settings.insideRadius - settings.textOffset[0] - 5;
-                var text = v.p;
+                var text = v.label;
                 if ($.browser.safari && c.context().measureText(text).width > availableTextWidth) {
                     while (c.context().measureText(text + '...').width > availableTextWidth) {
                         text = text.substr(0, text.length - 2);

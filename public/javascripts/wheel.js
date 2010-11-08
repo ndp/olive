@@ -91,10 +91,10 @@ $.fn.wheel = function(values, options) {
 
             // trigger even if new item is focused
             var focusedIndex = Math.round(-rotationAngle / arc + 2 * values.length) % values.length;
-            if (focusedIndex != lastFocusedIndex) {
+            if (lastFocusedIndex != null && focusedIndex != lastFocusedIndex) {
                 $this.trigger('passBy', [values[focusedIndex], focusedIndex]);
-                lastFocusedIndex = focusedIndex;
             }
+            lastFocusedIndex = focusedIndex;
 
             c.clearRect(0, 0, width, height);
             c.context().font = settings.font;

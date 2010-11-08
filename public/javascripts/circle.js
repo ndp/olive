@@ -74,6 +74,7 @@ $(function() {
                          }
                          $names.appendTo('#answers');
 
+                         $('<h6>').text('Most important during...').appendTo('#answers');
                          var cat = data[0].category;
                          $phases = $('<ol>');
                          $('<li>').text('requirements').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
@@ -90,7 +91,7 @@ $(function() {
                              'requirements,design,test': 'These questions are asked during all phases of a product development.'
                          }[cat]).appendTo('#answers');
 
-                         $('<div>').addClass('nib').css('borderRightColor',item.bubbleBackgroundColor).appendTo('#answers');
+                         $('<div>').addClass('nib').css('borderRightColor', item.bubbleBackgroundColor).appendTo('#answers');
 
                      }).bind('passBy',
                             function(e, item) {
@@ -129,35 +130,39 @@ $(function() {
         body: {
             backgroundColor: '#BD5108'.lighten(30).saturate(-60)
         },
-        '#circle': { cursor: 'pointer'},
-        h1: {
-            font: '35px/50px georgia',
+        '#circle': {
+            cursor: 'pointer',
             position: 'absolute',
-            left: 815,
-            width: 350,
-            padding: 20,
-            has: roundedCorners(10),
-            top: 0,
-            backgroundColor: 'rgb(132, 8, 57)',
-            color: '#fce6d5',
-            letterSpacing: 3,
+            top:45,
+            left: 20
+
+        },
+        h1: {
+            font: '35px/35px georgia',
+            padding: '0 0 0 20px',
+            margin: 0,
+            color: 'rgb(132, 8, 57)',
+            fontVariant: 'small-caps',
             span: {
-                display: 'block',
-                font: '20px/30px georgia',
-                letterSpacing: 0,
-                color: 'white',
-                '&.copyright': {
-                    color: 'black',
-                    fontSize: 12
-                }
+                color: '#BD5108'
+            }
+        },
+        'div.copyright': {
+            color: '#BD5108',
+            position: 'fixed',
+            fontSize: 12,
+            bottom: 0,
+            right: 20,
+            'a:link': {
+                color: '#BD5108'
             }
         },
         '#answers': {
             padding: 20,
             backgroundColor: '#ddd',
             position: 'absolute',
-            top: 300,
-            left: 815,
+            top: 150,
+            left: 830,
             width: 350,
             font: '18px/30px georgia',
             border: '1px 1px 1px 0 solid #666',
@@ -167,13 +172,22 @@ $(function() {
                 borderRight: '20px solid red',
                 borderTop: '20px solid transparent',
                 borderBottom: '20px solid transparent',
-                top: 85,
+                top: 275,
                 left: -15
             },
             h6: {
                 font: '15px/15px georgia',
                 padding: 0,
-                margin: 0
+                margin: 0,
+                opacity: .8,
+                fontStyle: 'italic'
+            },
+            h5: {
+                font: '16px/25px georgia',
+                padding: 0,
+                margin: 0,
+                opacity: .8,
+                fontStyle: 'italic'
             },
             h3: {
                 letterSpacing: 2
@@ -182,13 +196,16 @@ $(function() {
                 display: 'block',
                 padding: 0,
                 li: {
-                    display: 'block',
+                    listStylePosition: 'inside',
                     a: {
                         color: '#ffffff',
                         textDecoration: 'none',
-                        '&:hover': {textDecoration: 'underline'}
+                        '&:hover': {textDecoration: 'underline'},
+                        '&:before': { content: 'abc' }
                     }
-                }
+                },
+                paddingBottom: 20,
+                borderBottom: '1px dashed #999'
             },
             ol: {
                 has: clearfix(),
@@ -203,14 +220,11 @@ $(function() {
                     border: '1px solid white',
                     '&.off': {
                         opacity: .3
-//                        color: '#bbb',
-//                        borderColor: '#bbb'
-//                        backgroundColor: '#ffffff'
                     }
                 }
             },
             p: {
-                font: '15px/20px georgia',
+                font: '15px/25px georgia',
                 margin: 0,
                 paddingRight: 30
             }

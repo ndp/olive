@@ -10,14 +10,25 @@ $(function() {
             acts[0].color = c;
         }
 //        var color = acts[0].color;
+//        var color = {
+//            'requirements': '#316184',
+//            'requirements,design': '#BD5108'.saturate(-50),//'black',//'#F7DE84'.darken(30).saturate(10),yellow
+//            'design': 'unused',
+//            'design,test': '#BD5108'.saturate(-30), // orange
+//            'test': '#840839'.saturate(-40).lighten(10),// red
+//            'requirements,test': '#F7106B',
+//            'requirements,design,test': '#8F8FBC'
+//        }[acts[0].category] || '#000000'.saturate(-40).lighten(20);
+        var c = '#F7106B';
+        c = '#8F8FBC';
         var color = {
-            'requirements': '#316184',
-            'requirements,design': '#F7DE84'.darken(30).saturate(10),
-            'design': 'unused',
-            'design,test': '#BD5108',
-            'test': '#840839',
-            'requirements,test': '#F7106B',
-            'requirements,design,test': '#8F8FBC'
+            'requirements': c.darken(25),
+            'requirements,design': c.darken(20),
+            'design': c.darken(15),
+            'design,test': c.darken(10),
+            'test': c.darken(5),
+            'requirements,test': c,
+            'requirements,design,test': c.saturate(-100)
         }[acts[0].category] || '#000000'.saturate(-40).lighten(20);
         var item = {
             label:q,
@@ -53,15 +64,33 @@ $(function() {
                          $('#answers').empty().fadeIn('slow').css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
                          $('<h6>').text('If your questions are like...').appendTo('#answers');
                          $('<h3>').html('&ldquo;' + item.label + '&rdquo;').appendTo('#answers');
-                         $('<h6>').text('try...').appendTo('#answers');
+                         $('<h6>').text('consider...').appendTo('#answers');
                          var $names = $('<ul>');
                          var data = item.data;
                          for (var i = 0; i < data.length; i++) {
                              var $li = $('<li>').appendTo($names);
-                             var link = data[i].ref || 'http://www.google.com/search?q='+data[i].name;
-                             $('<a></a>').attr('href', link).attr('target','_blank').text(data[i].name).appendTo($li);
+                             var link = data[i].ref || 'http://www.google.com/search?q=' + data[i].name;
+                             $('<a></a>').attr('href', link).attr('target', '_blank').text(data[i].name).appendTo($li);
                          }
                          $names.appendTo('#answers');
+
+                         var cat = data[0].category;
+                         $phases = $('<ol>');
+                         $('<li>').text('requirements').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('design').addClass(cat.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('build & test').addClass(cat.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $phases.appendTo('#answers');
+                         $('<p></p>').html({
+                             'requirements': 'These questions are usually asked <em>before</em> product definition starts.',
+                             'requirements,design': 'These questions are usually asked <em>before or during</em> product definition, while early design ideas develop.',
+                             'design': 'unused',
+                             'design,test': 'These questions are usually asked <em>after</em> basic requirements, while defining and iterating on the product.',
+                             'test': 'These questions are usually asked <em>while iterating on</em> the product.',
+                             'requirements,test': 'These questions are usually asked <em>before</em> product definition or after construction.',
+                             'requirements,design,test': 'These questions are asked during all phases of a product development.'
+                         }[cat]).appendTo('#answers');
+
+                         $('<div>').addClass('nib').css('borderRightColor',item.bubbleBackgroundColor).appendTo('#answers');
 
                      }).bind('passBy',
                             function(e, item) {
@@ -72,8 +101,8 @@ $(function() {
                                    }).wheel(items, {
                                                        textOffset: [10,5],
                                                        insideRadius: 80,
-                                                        //    maskColor: 'transparent',
-                                                        //    hilightColor: 'white',
+                                                       //    maskColor: 'transparent',
+                                                       //    hilightColor: 'white',
                                                        font: '12px verdana, Arial'
                                                    });
 
@@ -98,13 +127,13 @@ $(function() {
 
     Csster.style({
         body: {
-            backgroundColor: '#555'
+            backgroundColor: '#BD5108'.lighten(30).saturate(-60)
         },
         '#circle': { cursor: 'pointer'},
         h1: {
             font: '35px/50px georgia',
             position: 'absolute',
-            left: 805,
+            left: 815,
             width: 350,
             padding: 20,
             has: roundedCorners(10),
@@ -128,13 +157,21 @@ $(function() {
             backgroundColor: '#ddd',
             position: 'absolute',
             top: 300,
-            left: 805,
+            left: 815,
             width: 350,
             font: '18px/30px georgia',
             border: '1px 1px 1px 0 solid #666',
             has: roundedCorners(10),
+            '.nib': {
+                position: 'absolute',
+                borderRight: '20px solid red',
+                borderTop: '20px solid transparent',
+                borderBottom: '20px solid transparent',
+                top: 85,
+                left: -15
+            },
             h6: {
-                font: '12px/15px verdana',
+                font: '15px/15px georgia',
                 padding: 0,
                 margin: 0
             },
@@ -142,11 +179,40 @@ $(function() {
                 letterSpacing: 2
             },
             ul: {
+                display: 'block',
+                padding: 0,
                 li: {
+                    display: 'block',
                     a: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        '&:hover': {textDecoration: 'underline'}
                     }
                 }
+            },
+            ol: {
+                has: clearfix(),
+                display: 'block',
+                padding: 0,
+                marginBottom: 0,
+                li: {
+                    display: 'block',
+                    float: 'left',
+                    padding: '5px 10px',
+                    marginRight: 2,
+                    border: '1px solid white',
+                    '&.off': {
+                        opacity: .3
+//                        color: '#bbb',
+//                        borderColor: '#bbb'
+//                        backgroundColor: '#ffffff'
+                    }
+                }
+            },
+            p: {
+                font: '15px/20px georgia',
+                margin: 0,
+                paddingRight: 30
             }
         }
 

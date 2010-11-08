@@ -208,7 +208,7 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {name: 'usability testing',
-                    category: 'requirements,design,test',
+                    category: 'test',
                     tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
                     egs: [
                         'right_usability',
@@ -250,7 +250,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'individual interviews',
-                    category: 'requirements,design,test',
+                    category: 'requirements,design',
                     eg: [
                         'understand_attitudes',
                         'right_ia',
@@ -259,10 +259,11 @@ function generateUXQuestions() {
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/individual.html',
                     effort: 2
                 },
-                {name: 'online surveys',
-                    category: 'requirements,design,test',
+                {
+                    name: 'online surveys',
+                    category: 'test',
                     egs: [
-                        'What are the demographics of the users?',
+                        'What are the demographics of the actual users?',
                         'understand_product_suggestions',
                         'What information are users looking for?',
                         'satisfied',

@@ -250,9 +250,9 @@ $.fn.wheel = function(values, options) {
                 drawWheel();
                 if (step >= steps) {
                     stopInterval();
+                    rotationAngle = normalizeAngle(newAngle);
                     drawWheel();
                     $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
-                    rotationAngle = normalizeAngle(newAngle);
                 }
             }, settings.duration / steps);
         }

@@ -1,7 +1,7 @@
 class DemoController < ApplicationController
   def index
   end
-  def wheel
+  def ux_wheel
   end
   def olive
   end

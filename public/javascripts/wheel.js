@@ -240,8 +240,8 @@ $.fn.wheel = function(values, options) {
                 return;
             }
 
-            var settings = $.extend({}, { steps: Math.abs(Math.round(diff * 10)), duration: 600 }, options);
-            var steps = settings.steps;
+            var animationSettings = $.extend({}, settings, options);
+            var steps = animationSettings.steps || Math.max(Math.abs(Math.round(diff * 10)),10);
             var step = 0;
             console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
             interval = setInterval(function() {
@@ -254,7 +254,7 @@ $.fn.wheel = function(values, options) {
                     drawWheel();
                     $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
                 }
-            }, settings.duration / steps);
+            }, animationSettings.duration / steps);
         }
 
 
@@ -271,6 +271,6 @@ $.fn.wheel = function(values, options) {
 $.fn.wheel.defaults = {
     insideRadius: 100,
     font: 'bold 16px Helvetica, Arial',
-    textOffset: [0,0]
-
+    textOffset: [0,0],
+    duration: 600 // of animation
 };

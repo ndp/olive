@@ -217,13 +217,14 @@ $.fn.wheel = function(values, options) {
         }
 
         function animateTo(newAngle, options) {
+            var animationSettings = $.extend({}, settings, options);
+
             stopInterval();
 
             rotationAngle = normalizeAngle(rotationAngle);
             newAngle = normalizeAngle(newAngle);
 
 
-            var firstAngle = rotationAngle;
             var diff = newAngle - rotationAngle;
 
             // simple heuristic to rotate the closest direction
@@ -236,11 +237,11 @@ $.fn.wheel = function(values, options) {
             diff = newAngle - rotationAngle;
 
             if (Math.abs(diff) < 0.000001) {
-                console.log('nothing to do because curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
+                console.log('nothing to do because curr: ' + rotationAngle + ' to  ' + newAngle + ' delta=' + diff);
                 return;
             }
 
-            var animationSettings = $.extend({}, settings, options);
+            var firstAngle = rotationAngle;
             var steps = animationSettings.steps || Math.max(Math.abs(Math.round(diff * 10)),10);
             var step = 0;
             console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);

@@ -74,7 +74,7 @@ $(function() {
                          }
                          $names.appendTo('#answers');
 
-                         $('<h6>').text('Most important during...').appendTo('#answers');
+                         $('<h6>').text('These questions come up first during...').appendTo('#answers');
                          var cat = data[0].category;
                          $phases = $('<ol>');
                          $('<li>').text('requirements').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);

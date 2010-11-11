@@ -29,22 +29,24 @@ function generateUXQuestions() {
             terminology: 'Is our terminology correct?',
             understand_domain: 'Do we understand the domain?',
             understand_goals: "What are the user's goals?",
-            understand_workflow: 'What are the steps of the task(s)?',
-            understand_process: 'How does a user achieve goals?',
+            understand_workflow: 'What process & steps are used to achieve goals?',
             understand_domain_problem: 'What problems should the product solve?',
-            understand_roles: 'Who does/helps with the tasks?',
+            understand_roles: 'Who actually does tasks? and who helps?',
             understand_user_types: 'What are the major types of users?',
             understand_attitudes: 'What are the users\' attitudes, beliefs, desires, and experiences?',
+            understand_product_weaknesses: 'What product areas need the most attention?',
             // What personal, social and cultural characteristics do users bring to the tasks?
             understand_environment: 'How are users influenced by their physical environment?',
+            understand_time_frame: "What is the users' time frame?",
             varying_perspectives: 'What varying perspectives affect product usage?',
             understand_varying_goals: 'What varying goals affect product usage?',
             test_approach: 'Will users understand our approach/ideas/approach?',
             right_ia: 'What should the categories/IA/structure be?',
-            right_task_ui: 'Can users complete a task?',
+            right_task_ui: 'Can users complete a task within our product?',
             right_ui: 'Do users understand how to use it?',
             right_ui_timed: 'Can users accomplish X in time Y?',
             right_usability: 'What are the usability problems?',  //What areas have the worst usability problems?
+            right_info: 'What information are users looking for?',
             define_cost: 'How much should it cost?',
             understand_product_suggestions: 'What are the users\' opinions of your site and suggestions?',
             understand_product_frustrations: 'What frustrations have users had with your site?',
@@ -96,6 +98,7 @@ function generateUXQuestions() {
                         'understand_user_types',
                         'varying_perspectives',
                         'understand_varying_goals',
+                        "understand_time_frame",
                         ''],
                     ref: 'http://www.usability.gov/methods/analyze_current/personas.html',
                     effort: 3
@@ -111,7 +114,9 @@ function generateUXQuestions() {
                         "terminology",
                         "understand_domain_problem",
                         //"What is a reasonable time frame?",
-                        'understand_roles'
+                        'understand_roles',
+                        "understand_time_frame",
+                            "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/contextual.html',
                     effort: 2
@@ -121,7 +126,9 @@ function generateUXQuestions() {
                     tests: 'complexities of domain, specialized knowledge, best practices',
                     egs: [
                         "terminology",
-                        "understand_domain_problem" //              "What is a reasonable time frame?"
+                        "understand_domain_problem",
+                        "understand_time_frame",
+                            "understand_workflow"
                     ],
                     effort: 2},
                 {name: 'customer interviews',
@@ -133,9 +140,11 @@ function generateUXQuestions() {
                         'understand_varying_goals',
 //                    "define_cost",
                         "understand_domain_problem",
-                        "What is the users\' time frame?"
+                        "understand_time_frame",
+                            "understand_workflow"
                     ],
-                    effort: 2
+                    effort: 2,
+                    ref: 'http://www.usability.gov/methods/analyze_current/learn/individual.html'
                 },
                 {name: 'quantitative research',
                     tests: 'financial questions, market demographics',
@@ -179,7 +188,8 @@ function generateUXQuestions() {
                         'Do users understand the brand?',
                         'understand_domain',
                         'understand_attitudes',
-                        'test_approach'
+                        'test_approach',
+                        "understand_time_frame"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/focus.html',
                     effort: 3
@@ -189,7 +199,8 @@ function generateUXQuestions() {
                     category: 'requirements,design,test',
                     egs:[
                         'right_ia',
-                        "terminology"
+                        "terminology",
+                            "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/design_site/cardsort.html',
                     effort: 2
@@ -199,7 +210,6 @@ function generateUXQuestions() {
                     category: 'requirements',
                     egs: [
                         'understand_goals',
-                        'understand_process',
                         'understand_attitudes',
                         'understand_environment',
                         'understand_workflow'
@@ -243,7 +253,7 @@ function generateUXQuestions() {
                     category: 'design,test',
                     eg: [
                         'right_usability',
-                        'What UE areas need the most attention?'
+                        'understand_product_weaknesses'
                     ],
                     ref: 'http://www.usability.gov/methods/test_refine/heuristic.html',
                     effort: 2
@@ -254,7 +264,9 @@ function generateUXQuestions() {
                     eg: [
                         'understand_attitudes',
                         'right_ia',
-                        "terminology"
+                        "terminology",
+                        "understand_time_frame",
+                            "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/individual.html',
                     effort: 2
@@ -265,9 +277,10 @@ function generateUXQuestions() {
                     egs: [
                         'What are the demographics of the actual users?',
                         'understand_product_suggestions',
-                        'What information are users looking for?',
+                        'right_info',
                         'satisfied',
-                        'understand_product_frustrations'
+                        'understand_product_frustrations',
+                        "understand_time_frame"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
                     effort: 2
@@ -277,7 +290,7 @@ function generateUXQuestions() {
                     category: 'requirements,design,test',
                     egs: [
                         'understand_product_suggestions',
-                        'What information are users looking for?',
+                        'right_info',
                         'satisfied',
                         'understand_product_frustrations'
                     ],

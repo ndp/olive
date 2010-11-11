@@ -77,9 +77,9 @@ $(function() {
                          $('<h6>').text('These questions come up first during...').appendTo('#answers');
                          var cat = data[0].category;
                          $phases = $('<ol>');
-                         $('<li>').text('requirements').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
-                         $('<li>').text('design').addClass(cat.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
-                         $('<li>').text('build & test').addClass(cat.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('before').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('design & build').addClass(cat.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('after').addClass(cat.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
                          $phases.appendTo('#answers');
                          $('<p></p>').html({
                              'requirements': 'These questions are usually asked <em>before</em> product definition starts.',
@@ -148,13 +148,22 @@ $(function() {
             }
         },
         'div.copyright': {
-            color: '#BD5108',
+            color: 'white',
             position: 'fixed',
-            fontSize: 12,
+            fontSize: 14,
             bottom: 0,
-            right: 20,
+            right: 0,
+            padding:10,
+            zIndex: 100,
+            has: roundedCorners('tl',10),
+            opacity: .9,
+            backgroundColor: '#BD5108'.saturate(-60),
             'a:link': {
-                color: '#BD5108'
+                color: 'white',
+                textDecoration: 'none'
+            },
+            'a:hover': {
+                textDecoration: 'underline'
             }
         },
         '#answers': {

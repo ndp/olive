@@ -123,23 +123,29 @@ $(function() {
 
     Csster.style({
         body: {
+            margin: 0,
+            padding: 0,
             backgroundColor: '#BD5108'.lighten(30).saturate(-60)
         },
         '#circle': {
             cursor: 'pointer',
             position: 'absolute',
-            top:45,
-            left: 20
+            top: 55,
+            left: 0
 
         },
         h1: {
             font: '35px/35px georgia',
-            padding: '0 0 0 20px',
             margin: 0,
+            padding: '5px 20px 10px 10px',
+            has: roundedCorners('br',20),
             color: 'rgb(132, 8, 57)',
+            float: 'left',
             fontVariant: 'small-caps',
+            backgroundColor: '#C9AB97'.darken(10),
             span: {
-                color: '#BD5108'
+                color: '#BD5108',
+                fontSize: '80%'
             }
         },
         'div.copyright': {
@@ -165,9 +171,10 @@ $(function() {
             padding: 20,
             backgroundColor: '#ddd',
             position: 'absolute',
-            top: 150,
-            left: 830,
+            top: 70,
+            left: 810,
             width: 350,
+            minHeight: 390,
             font: '18px/30px georgia',
             border: '1px 1px 1px 0 solid #666',
             has: roundedCorners(10),
@@ -176,7 +183,7 @@ $(function() {
                 borderRight: '20px solid red',
                 borderTop: '20px solid transparent',
                 borderBottom: '20px solid transparent',
-                top: 275,
+                top: 280 + 80,
                 left: -15
             },
             h6: {

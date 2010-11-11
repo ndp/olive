@@ -246,7 +246,7 @@ $.fn.wheel = function(values, options) {
             var step = 0;
             console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
             interval = setInterval(function() {
-                rotationAngle = $.easing.easeOutQuad(null, step++, firstAngle, diff, steps);
+                rotationAngle = settings.easing(null, step++, firstAngle, diff, steps);
                 //  old format currentAngle = $.easing.easeOutBounce(p++/steps, steps, firstAngle, diff);
                 drawWheel();
                 if (step >= steps) {
@@ -273,5 +273,6 @@ $.fn.wheel.defaults = {
     insideRadius: 100,
     font: 'bold 16px Helvetica, Arial',
     textOffset: [0,0],
-    duration: 600 // of animation
+    duration: 600, // of animation
+    easing: $.easing.easeOutQuad
 };

@@ -73,13 +73,13 @@ function generateUXQuestions() {
             [
                 {
                     name: 'eye tracking',
-                    category: 'design,test',
+                    phase: 'design,test',
                     egs: ['What links and pages aren\'t used or seen?'],
                     effort: 2
                 },
                 {
                     name: 'prototyping (paper, higher-fidelity)',
-                    category: 'design,test',
+                    phase: 'design,test',
                     egs: [
                         'understand_workflow',
                         "terminology",
@@ -91,7 +91,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'developing personas',
-                    category: 'requirements',
+                    phase: 'requirements',
                     tests: 'definition of user',
                     egs: [
                         'understand_attitudes',
@@ -105,7 +105,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'contextual interview',
-                    category: 'requirements',
+                    phase: 'requirements',
                     tests: 'problems, domain knowledge, goals, tasks',
                     egs: [
                         'understand_environment',
@@ -122,7 +122,7 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {name: 'subject matter expert interviews',
-                    category: 'requirements',
+                    phase: 'requirements',
                     tests: 'complexities of domain, specialized knowledge, best practices',
                     egs: [
                         "terminology",
@@ -132,7 +132,7 @@ function generateUXQuestions() {
                     ],
                     effort: 2},
                 {name: 'customer interviews',
-                    category: 'requirements',
+                    phase: 'requirements',
                     tests: 'goals, frustrations, buying considerations',
                     egs: [
                         'varying_perspectives',
@@ -148,7 +148,7 @@ function generateUXQuestions() {
                 },
                 {name: 'quantitative research',
                     tests: 'financial questions, market demographics',
-                    category: 'requirements',
+                    phase: 'requirements',
                     egs: [
 //                    'define_cost',
                         'terminology',
@@ -160,7 +160,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'click tracking',
-                    category: 'test',
+                    phase: 'test',
                     egs: [
                         'What links and pages aren\'t used or seen?',
                         'What do users actually do/find on our site?'
@@ -170,7 +170,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'web analytics',
-                    category: 'test',
+                    phase: 'test',
                     egs: [
                         'What links and pages aren\'t used?',
                         'What do users actually do/find on our site?',
@@ -181,7 +181,7 @@ function generateUXQuestions() {
                 },
                 {name: 'focus groups',
                     tests: 'sense of brand or new domain',
-                    category: 'requirements,design',
+                    phase: 'requirements,design',
                     egs: [
                         'varying_perspectives',
                         'understand_varying_goals',
@@ -196,7 +196,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'card sorting',
-                    category: 'requirements,design,test',
+                    phase: 'requirements,design,test',
                     egs:[
                         'right_ia',
                         "terminology",
@@ -207,7 +207,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'task analysis',
-                    category: 'requirements',
+                    phase: 'requirements',
                     egs: [
                         'understand_goals',
                         'understand_attitudes',
@@ -218,7 +218,7 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {name: 'usability testing',
-                    category: 'test',
+                    phase: 'test',
                     tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
                     egs: [
                         'right_usability',
@@ -235,7 +235,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'remote automated user testing',
-                    category: 'design,test',
+                    phase: 'design,test',
                     egs: [
                         'right_usability',
 //              "Can users achieve a goal within a scenario?",
@@ -250,7 +250,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'heuristic evaluations',
-                    category: 'design,test',
+                    phase: 'design,test',
                     eg: [
                         'right_usability',
                         'understand_product_weaknesses'
@@ -260,7 +260,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'individual interviews',
-                    category: 'requirements,design',
+                    phase: 'requirements,design',
                     eg: [
                         'understand_attitudes',
                         'right_ia',
@@ -273,7 +273,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'online surveys',
-                    category: 'test',
+                    phase: 'test',
                     egs: [
                         'What are the demographics of the actual users?',
                         'understand_product_suggestions',
@@ -287,7 +287,7 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'support forums (yours and competitors)',
-                    category: 'requirements,design,test',
+                    phase: 'requirements,design,test',
                     egs: [
                         'understand_product_suggestions',
                         'right_info',

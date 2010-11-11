@@ -2,34 +2,26 @@ $(function() {
 
     var uxQuestions = generateUXQuestions();
 
+    function phaseToColor(phase) {
+        var c = ColorFactory.interpolate('#8F8FBC', '#8F8FBC'.darken(50), 7);
+        return {
+            'requirements': c[0],
+            'requirements,design': c[1],
+            'design': c[2],
+            'design,test': c[3],
+            'test': c[4],
+            'requirements,test': c[5],
+            'requirements,design,test': c[6]
+        }[phase] || '#000000'.saturate(-40).lighten(20);
+    }
+    
+
     var items = [];
     for (var q in uxQuestions) {
         var acts = uxQuestions[q];
-        if (!acts[0].color) {
-            var c = ColorFactory.randomHue(20, 40);
-            acts[0].color = c;
-        }
-//        var color = acts[0].color;
-//        var color = {
-//            'requirements': '#316184',
-//            'requirements,design': '#BD5108'.saturate(-50),//'black',//'#F7DE84'.darken(30).saturate(10),yellow
-//            'design': 'unused',
-//            'design,test': '#BD5108'.saturate(-30), // orange
-//            'test': '#840839'.saturate(-40).lighten(10),// red
-//            'requirements,test': '#F7106B',
-//            'requirements,design,test': '#8F8FBC'
-//        }[acts[0].category] || '#000000'.saturate(-40).lighten(20);
-        var c = '#F7106B';
-        c = '#8F8FBC';
-        var color = {
-            'requirements': c.darken(25),
-            'requirements,design': c.darken(20),
-            'design': c.darken(15),
-            'design,test': c.darken(10),
-            'test': c.darken(5),
-            'requirements,test': c,
-            'requirements,design,test': c.saturate(-100)
-        }[acts[0].category] || '#000000'.saturate(-40).lighten(20);
+
+        var color = phaseToColor(acts[0].phase);
+
         var item = {
             label:q,
             backgroundColor: color,
@@ -74,8 +66,8 @@ $(function() {
                          }
                          $names.appendTo('#answers');
 
-                         $('<h6>').text('These questions come up first during...').appendTo('#answers');
-                         var cat = data[0].category;
+                         $('<h6>').text('These questions come up...').appendTo('#answers');
+                         var cat = data[0].phase;
                          $phases = $('<ol>');
                          $('<li>').text('before').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
                          $('<li>').text('design & build').addClass(cat.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
@@ -104,7 +96,10 @@ $(function() {
                                                        insideRadius: 80,
                                                        //    maskColor: 'transparent',
                                                        //    hilightColor: 'white',
-                                                       font: '12px verdana, Arial'
+                                                       font: '12px verdana, Arial',
+                                                       duration: 1000,
+                                                       easing: $.easing.easeOutBounce
+
                                                    });
 
 
@@ -155,7 +150,7 @@ $(function() {
             right: 0,
             padding:10,
             zIndex: 100,
-            has: roundedCorners('tl',10),
+            has: roundedCorners('tl', 10),
             opacity: .9,
             backgroundColor: '#BD5108'.saturate(-60),
             'a:link': {

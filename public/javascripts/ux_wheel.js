@@ -188,7 +188,7 @@ $(function() {
                 borderRight: '20px solid red',
                 borderTop: '20px solid transparent',
                 borderBottom: '20px solid transparent',
-                top: 280 + 80,
+                top: 365,
                 left: -15
             },
             h6: {

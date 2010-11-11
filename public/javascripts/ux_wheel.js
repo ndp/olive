@@ -3,7 +3,9 @@ $(function() {
     var uxQuestions = generateUXQuestions();
 
     function phaseToColor(phase) {
-        var c = ColorFactory.interpolate('#8F8FBC', '#8F8FBC'.darken(50), 7);
+//        #var c = ColorFactory.interpolate('#8F8FBC', '#8F8FBC'.darken(50), 7);
+//        var c = ColorFactory.interpolate('purple'.lighten(30), 'purple'.darken(10), 7);
+        var c = ColorFactory.interpolate('#DE790A'.lighten(10), '#BD5108', 7);
         return {
             'requirements': c[0],
             'requirements,design': c[1],
@@ -67,11 +69,11 @@ $(function() {
                          $names.appendTo('#answers');
 
                          $('<h6>').text('These questions come up...').appendTo('#answers');
-                         var cat = data[0].phase;
+                         var phase = data[0].phase;
                          $phases = $('<ol>');
-                         $('<li>').text('before').addClass(cat.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
-                         $('<li>').text('design & build').addClass(cat.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
-                         $('<li>').text('after').addClass(cat.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('before').addClass(phase.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('design & build').addClass(phase.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('after').addClass(phase.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
                          $phases.appendTo('#answers');
                          $('<p></p>').html({
                              'requirements': 'These questions are usually asked <em>before</em> product definition starts.',
@@ -81,7 +83,7 @@ $(function() {
                              'test': 'These questions are usually asked <em>while iterating on</em> the product.',
                              'requirements,test': 'These questions are usually asked <em>before</em> product definition or after construction.',
                              'requirements,design,test': 'These questions are asked during all phases of a product development.'
-                         }[cat]).appendTo('#answers');
+                         }[phase]).appendTo('#answers');
 
                          $('<div>').addClass('nib').css('borderRightColor', item.bubbleBackgroundColor).appendTo('#answers');
 
@@ -121,11 +123,13 @@ $(function() {
 
     });
 
+    var bg = '#BD5108'.lighten(30).saturate(-60);
+    bg = phaseToColor('requirements').lighten(10).saturate(-30);
     Csster.style({
         body: {
             margin: 0,
             padding: 0,
-            backgroundColor: '#BD5108'.lighten(30).saturate(-60)
+            backgroundColor: bg
         },
         '#circle': {
             cursor: 'pointer',
@@ -139,12 +143,12 @@ $(function() {
             margin: 0,
             padding: '5px 20px 10px 10px',
             has: roundedCorners('br',20),
-            color: 'rgb(132, 8, 57)',
+            backgroundColor: phaseToColor('test'),
+            color: phaseToColor('test').lighten(30).saturate(-50),
             float: 'left',
             fontVariant: 'small-caps',
-            backgroundColor: '#C9AB97'.darken(10),
             span: {
-                color: '#BD5108',
+                color: phaseToColor('test').lighten(50).saturate(-30),
                 fontSize: '80%'
             }
         },
@@ -158,7 +162,7 @@ $(function() {
             zIndex: 100,
             has: roundedCorners('tl', 10),
             opacity: .9,
-            backgroundColor: '#BD5108'.saturate(-60),
+            backgroundColor: bg.darken(30),
             'a:link': {
                 color: 'white',
                 textDecoration: 'none'
@@ -169,7 +173,8 @@ $(function() {
         },
         '#answers': {
             padding: 20,
-            backgroundColor: '#ddd',
+            backgroundColor: bg.darken(30),
+            color: 'white',
             position: 'absolute',
             top: 70,
             left: 810,
@@ -228,10 +233,14 @@ $(function() {
                     float: 'left',
                     padding: '5px 10px',
                     marginRight: 2,
+                    color: 'white',
                     border: '1px solid white',
                     '&.off': {
                         opacity: .3
-                    }
+                    },
+                    '&.requirements': { backgroundColor: phaseToColor('requirements')},
+                    '&.design': { backgroundColor: phaseToColor('design')},
+                    '&.test': { backgroundColor: phaseToColor('test')}
                 }
             },
             p: {
@@ -245,4 +254,5 @@ $(function() {
 
 
 });
+
 

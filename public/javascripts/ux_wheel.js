@@ -112,15 +112,7 @@ $(function() {
             $('#circle').trigger('next');
         } else if (event.keyCode == 38 || event.keyCode == 109) {
             $('#circle').trigger('prev');
-        } else {
-            number = event.keyCode - 48;
-            if (number >= 0 && number < 10) {
-                $('#circle').trigger('spinTo', items[number].text);
-            } else {
-                console.log(event.keyCode);
-            }
         }
-
     });
 
     var bg = '#BD5108'.lighten(30).saturate(-60);

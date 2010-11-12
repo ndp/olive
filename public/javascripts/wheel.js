@@ -72,6 +72,24 @@ $.fn.wheel = function(values, options) {
             $this.trigger('clickOn', [values[itemIndex], itemIndex]);
         });
 
+        function triggerFocusOn() {
+            $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
+        }
+
+        if ($.fn.mousewheel) {
+            var mousewheelTimeout = null;
+            $this.mousewheel(function(e, delta) {
+                console.log('mousewheel=' + delta);
+                stopInterval();
+                if (mousewheelTimeout) clearTimeout(mousewheelTimeout);
+                mousewheelTimeout = setTimeout(triggerFocusOn, 200);
+                rotationAngle -= delta/15;
+                normalizeAngle(rotationAngle);
+                drawWheel();
+                return false;
+            });
+        }
+
         function stringToItemIndex(s) {
             for (var i = 0; i < values.length; i++) {
                 if (s == values[i].label)  return i;
@@ -188,16 +206,16 @@ $.fn.wheel = function(values, options) {
 
         $this.bind('stop', function(event) {
             stopInterval();
-            $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
+            triggerFocusOn();
         });
 
-        $this.bind('next', function() {
+        $this.bind('next', function(e, amount) {
             var nextIndex = ((lastFocusedIndex || 0) + 1) % values.length;
             var newAngle = -(nextIndex * arc);
             animateTo(newAngle);
         });
 
-        $this.bind('prev', function() {
+        $this.bind('prev', function(e, amount) {
             var nextIndex = ((lastFocusedIndex || 0) - 1 + values.length) % values.length;
             var newAngle = -(nextIndex * arc);
             animateTo(newAngle);
@@ -212,7 +230,7 @@ $.fn.wheel = function(values, options) {
 
         function normalizeAngle(a) {
             while (a < 0) a += 2 * Math.PI;
-            while (a > Math.PI*2) a -= 2 * Math.PI;
+            while (a > Math.PI * 2) a -= 2 * Math.PI;
             return a;
         }
 
@@ -242,7 +260,7 @@ $.fn.wheel = function(values, options) {
             }
 
             var firstAngle = rotationAngle;
-            var steps = animationSettings.steps || Math.max(Math.abs(Math.round(diff * 10)),10);
+            var steps = animationSettings.steps || Math.max(Math.abs(Math.round(diff * 10)), 10);
             var step = 0;
             console.log('curr: ' + firstAngle + ' to  ' + newAngle + ' delta=' + diff);
             interval = setInterval(function() {
@@ -253,20 +271,15 @@ $.fn.wheel = function(values, options) {
                     stopInterval();
                     rotationAngle = normalizeAngle(newAngle);
                     drawWheel();
-                    $this.trigger('focusOn', [values[lastFocusedIndex], lastFocusedIndex]);
+                    triggerFocusOn();
                 }
             }, animationSettings.duration / steps);
         }
 
-
         return this;
 
-    }
-
-            )
-            ;
-}
-        ;
+    });
+};
 
 
 $.fn.wheel.defaults = {

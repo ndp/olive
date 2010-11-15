@@ -1,10 +1,109 @@
 $(function() {
 
+
+    $.fn.pulloutPanel = function(options) {
+
+        var settings = $.extend({}, $.fn.pulloutPanel.defaults, options);
+
+        return $(this).each(function() {
+            var $this = $(this);
+
+            $this.addClass('pullout_panel');
+
+            $this.bind('open', function(event) {
+                $this.animate({bottom: 0}, 'slow', 'easeOutBounce', function() {
+                    $this.removeClass('closed').addClass('opened');
+                    $this.trigger('opened');
+                });
+            });
+            $this.bind('close', function(event) {
+                var height = $this.innerHeight();
+                $this.animate({bottom: -height + 50}, 'slow', 'easeOutBounce', function() {
+                    $this.addClass('closed').removeClass('opened');
+                    $this.trigger('closed');
+                });
+            });
+            $this.bind('toggle', function(event) {
+                $this.trigger($this.hasClass('opened') ? 'close' : 'open');
+            });
+
+            once(function() {
+                Csster.style({
+                    '.pullout_panel': {
+                        position: 'fixed',
+                        bottom: 0,
+                        has: [settings.css]
+                    }
+                });
+            });
+
+            $this.trigger(settings.open ? 'open' : 'close');
+
+        });
+    };
+
+    $.fn.pulloutPanel.defaults = {
+        attachTo: 'bottom',
+        css: {
+            width: 500,
+            padding: '10px 20px',
+            right: 0,
+            backgroundColor: phaseToColor('requirements').saturate(-30).darken(20),
+            color: 'white',
+            minHeight: 390,
+            border: '1px 1px 1px 0 solid #666',
+            has: [roundedCorners('tl', 10),boxShadow([0,0], 10, phaseToColor('requirements').saturate(-30).darken(50))],
+            cursor: 'pointer',
+            p: {
+                font: '15px/25px georgia',
+                margin: 0,
+                paddingRight: 30
+            },
+            h4: {
+                font: '18px/25px georgia',
+                padding: '5px 0',
+                margin: 0,
+                fontStyle: 'italic',
+                span: {
+                    paddingTop: 0,
+                    opacity: .8,
+                    float: 'right',
+                    font: '15px/25px georgia'
+                }
+            },
+            '&:hover h4 span': {opacity: 1},
+            '.copyright': {
+                font: '12px/25px georgia'
+            },
+            h5: {
+                font: '15px/25px georgia',
+                padding: 0,
+                margin: 0,
+                opacity: .8,
+                fontStyle: 'italic'
+            },
+            'a:link, a:visited': {
+                color: 'white',
+                textDecoration: 'none'
+            },
+            'a:hover': {
+                textDecoration: 'underline'
+            }
+
+        }
+    };
+
+    $('#about').pulloutPanel({attachTo:'br', open: true}).click(
+                                                               function() {
+                                                                   $(this).trigger('toggle');
+                                                               }).bind('opened closed', function() {
+        $(this).find('h4 span').text('click to ' + ($(this).hasClass('opened') ? 'hide' : 'show'));
+    });
+
+
     var uxQuestions = generateUXQuestions();
 
     function phaseToColor(phase) {
-//        #var c = ColorFactory.interpolate('#8F8FBC', '#8F8FBC'.darken(50), 7);
-//        var c = ColorFactory.interpolate('purple'.lighten(30), 'purple'.darken(10), 7);
         var c = ColorFactory.interpolate('#DE790A'.lighten(10), '#BD5108', 7);
         return {
             'requirements': c[0],
@@ -16,7 +115,7 @@ $(function() {
             'requirements,design,test': c[6]
         }[phase] || '#000000'.saturate(-40).lighten(20);
     }
-    
+
 
     var items = [];
     for (var q in uxQuestions) {
@@ -115,8 +214,7 @@ $(function() {
         }
     });
 
-    var bg = '#BD5108'.lighten(30).saturate(-60);
-    bg = phaseToColor('requirements').lighten(10).saturate(-30);
+    var bg = phaseToColor('requirements').lighten(10).saturate(-30);
     Csster.style({
         body: {
             margin: 0,
@@ -134,7 +232,7 @@ $(function() {
             font: '35px/35px georgia',
             margin: 0,
             padding: '5px 20px 10px 10px',
-            has: roundedCorners('br',20),
+            has: roundedCorners('br', 20),
             backgroundColor: phaseToColor('test'),
             color: phaseToColor('test').lighten(30).saturate(-50),
             float: 'left',
@@ -144,26 +242,8 @@ $(function() {
                 fontSize: '80%'
             }
         },
-        'div.copyright': {
-            color: 'white',
-            position: 'fixed',
-            fontSize: 14,
-            bottom: 0,
-            right: 0,
-            padding:10,
-            zIndex: 100,
-            has: roundedCorners('tl', 10),
-            opacity: .9,
-            backgroundColor: bg.darken(30),
-            'a:link': {
-                color: 'white',
-                textDecoration: 'none'
-            },
-            'a:hover': {
-                textDecoration: 'underline'
-            }
-        },
         '#answers': {
+            display: 'none',
             padding: 20,
             backgroundColor: bg.darken(30),
             color: 'white',
@@ -215,30 +295,30 @@ $(function() {
                 paddingBottom: 20,
                 borderBottom: '1px dashed #999'
             },
-            ol: {
-                has: clearfix(),
-                display: 'block',
-                padding: 0,
-                marginBottom: 0,
-                li: {
-                    display: 'block',
-                    float: 'left',
-                    padding: '5px 10px',
-                    marginRight: 2,
-                    color: 'white',
-                    border: '1px solid white',
-                    '&.off': {
-                        opacity: .3
-                    },
-                    '&.requirements': { backgroundColor: phaseToColor('requirements')},
-                    '&.design': { backgroundColor: phaseToColor('design')},
-                    '&.test': { backgroundColor: phaseToColor('test')}
-                }
-            },
             p: {
                 font: '15px/25px georgia',
                 margin: 0,
                 paddingRight: 30
+            }
+        },
+        ol: {
+            has: clearfix(),
+            display: 'block',
+            padding: 0,
+            marginBottom: 0,
+            li: {
+                display: 'block',
+                float: 'left',
+                padding: '5px 10px',
+                marginRight: 2,
+                color: 'white',
+                border: '1px solid white',
+                '&.off': {
+                    opacity: .3
+                },
+                '&.requirements': { backgroundColor: phaseToColor('requirements')},
+                '&.design': { backgroundColor: phaseToColor('design')},
+                '&.test': { backgroundColor: phaseToColor('test')}
             }
         }
 

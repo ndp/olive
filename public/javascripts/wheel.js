@@ -177,6 +177,13 @@ $.fn.wheel = function(values, options) {
 //        c.context().stroke();
             }
 
+            if (settings.centerColor) {
+                c.context().beginPath();
+                c.context().arc(center.x, center.y, settings.insideRadius, 0, Math.PI * 2, true); // Outer circle
+                c.context().fillStyle = settings.centerColor;
+                c.context().fill();
+            }
+
 
         }
 

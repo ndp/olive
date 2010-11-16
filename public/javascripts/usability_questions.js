@@ -78,7 +78,7 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {
-                    name: 'prototyping (paper, higher-fidelity)',
+                    name: 'prototyping (paper or higher-fidelity)',
                     phase: 'design,test',
                     egs: [
                         'understand_workflow',
@@ -104,7 +104,7 @@ function generateUXQuestions() {
                     effort: 3
                 },
                 {
-                    name: 'contextual interview',
+                    name: 'contextual interviews',
                     phase: 'requirements',
                     tests: 'problems, domain knowledge, goals, tasks',
                     egs: [
@@ -116,7 +116,7 @@ function generateUXQuestions() {
                         //"What is a reasonable time frame?",
                         'understand_roles',
                         "understand_time_frame",
-                            "understand_workflow"
+                        "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/contextual.html',
                     effort: 2
@@ -128,7 +128,7 @@ function generateUXQuestions() {
                         "terminology",
                         "understand_domain_problem",
                         "understand_time_frame",
-                            "understand_workflow"
+                        "understand_workflow"
                     ],
                     effort: 2},
                 {name: 'customer interviews',
@@ -141,7 +141,7 @@ function generateUXQuestions() {
 //                    "define_cost",
                         "understand_domain_problem",
                         "understand_time_frame",
-                            "understand_workflow"
+                        "understand_workflow"
                     ],
                     effort: 2,
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/individual.html'
@@ -196,11 +196,11 @@ function generateUXQuestions() {
                 },
                 {
                     name: 'card sorting',
-                    phase: 'requirements,design,test',
+                    phase: 'requirements,design',
                     egs:[
                         'right_ia',
                         "terminology",
-                            "understand_workflow"
+                        "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/design_site/cardsort.html',
                     effort: 2
@@ -218,27 +218,27 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {name: 'usability testing',
-                    phase: 'test',
+                    phase: 'design,test',
                     tests: "assessing prototype's first-time ease of use, fine tuning button labels and such, persuading people there IS a problem",
                     egs: [
                         'right_usability',
+                        'right_ui',
+                        'right_task_ui',
+                        'right_ui_timed',
                         'How easy is it to learn?',
                         'Is the usability that bad?',
                         "terminology",
-                        'right_ui_timed',
                         'What is the error rate?',
-                        'right_ui',
                         'Can users can make the right choice and explain why?'
                     ],
                     ref: 'http://www.usability.gov/methods/test_refine/learnusa/index.html',
                     effort: 2
                 },
                 {
-                    name: 'remote automated user testing',
+                    name: 'remote un-moderated user testing',
                     phase: 'design,test',
                     egs: [
                         'right_usability',
-//              "Can users achieve a goal within a scenario?",
                         'right_ui',
                         'Is the usability that bad?',
                         "terminology",
@@ -266,7 +266,7 @@ function generateUXQuestions() {
                         'right_ia',
                         "terminology",
                         "understand_time_frame",
-                            "understand_workflow"
+                        "understand_workflow"
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/individual.html',
                     effort: 2

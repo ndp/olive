@@ -14,8 +14,8 @@ $(function() {
             position: 'absolute',
             top: wheelTop,
             left: 0,
-            width: wheelRadius*2,
-            height: wheelRadius*2 //'800' height='800'
+            width: wheelRadius * 2,
+            height: wheelRadius * 2 //'800' height='800'
 
         },
         '#answers': {
@@ -83,7 +83,7 @@ $(function() {
             }
         },
         '#about': {
-           fontFamily: 'georgia',
+            fontFamily: 'georgia',
             width: 500,
             padding: '10px 20px',
             backgroundColor: '#ecb678'.saturate(0).darken(30),
@@ -153,7 +153,7 @@ $(function() {
         }
 
     });
-    
+
 
 //    (function() {
 //        images = [
@@ -262,9 +262,9 @@ $(function() {
     };
 
     $('#about').pulloutPanel({attachTo:'bl'}).click(
-                                                               function() {
-                                                                   $(this).trigger('toggle');
-                                                               }).bind('opened closed', function() {
+                                                   function() {
+                                                       $(this).trigger('toggle');
+                                                   }).bind('opened closed', function() {
         $(this).find('h4 span').text('click to ' + ($(this).hasClass('opened') ? 'hide' : 'show'));
     });
 
@@ -325,41 +325,39 @@ $(function() {
 
     $('#circle').bind('focusOn',
                      function(e, item) {
-                         setTimeout(function() {
 
-                             $('#answers').empty().slideDown({ duration: 'fast', easing: 'easeOutBounce'}).css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
-                             $('<h6>').text('If your questions are like...').appendTo('#answers');
-                             $('<h3>').html('&ldquo;' + item.label + '&rdquo;').appendTo('#answers');
-                             $('<h6>').text('consider...').appendTo('#answers');
-                             var $names = $('<ul>');
-                             var data = item.data;
-                             for (var i = 0; i < data.length; i++) {
-                                 var $li = $('<li>').appendTo($names);
-                                 var link = data[i].ref || 'http://www.google.com/search?q=' + data[i].name;
-                                 $('<a></a>').attr('href', link).attr('target', '_blank').text(data[i].name).appendTo($li);
-                             }
-                             $names.appendTo('#answers');
+                         $('#answers').empty().slideDown({ duration: 'fast', easing: 'easeOutBounce'}).css({color: item.bubbleColor,backgroundColor: item.bubbleBackgroundColor});
+                         $('<h6>').text('If your questions are like...').appendTo('#answers');
+                         $('<h3>').html('&ldquo;' + item.label + '&rdquo;').appendTo('#answers');
+                         $('<h6>').text('consider...').appendTo('#answers');
+                         var $names = $('<ul>');
+                         var data = item.data;
+                         for (var i = 0; i < data.length; i++) {
+                             var $li = $('<li>').appendTo($names);
+                             var link = data[i].ref || 'http://www.google.com/search?q=' + data[i].name;
+                             $('<a></a>').attr('href', link).attr('target', '_blank').text(data[i].name).appendTo($li);
+                         }
+                         $names.appendTo('#answers');
 
-                             $('<h6>').text('These questions come up...').appendTo('#answers');
-                             var phase = data[0].phase;
-                             $phases = $('<ol>');
-                             $('<li>').text('before').addClass(phase.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
-                             $('<li>').text('design & build').addClass(phase.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
-                             $('<li>').text('refine').addClass(phase.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
-                             $phases.appendTo('#answers');
-                             $('<p></p>').html({
-                                 'requirements': 'These questions are usually asked <em>before</em> product definition starts.',
-                                 'requirements,design': 'These questions are usually asked <em>before or during</em> product definition, while early design ideas develop.',
-                                 'design': 'unused',
-                                 'design,test': 'These questions are usually asked <em>after</em> basic requirements, while defining and iterating on the product.',
-                                 'test': 'These questions are usually asked <em>while iterating on</em> the product.',
-                                 'requirements,test': 'These questions are usually asked <em>before</em> product definition or after construction.',
-                                 'requirements,design,test': 'These questions are asked during all phases of a product development.'
-                             }[phase]).appendTo('#answers');
+                         $('<h6>').text('These questions come up...').appendTo('#answers');
+                         var phase = data[0].phase;
+                         $phases = $('<ol>');
+                         $('<li>').text('before').addClass(phase.indexOf('requirements') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('design & build').addClass(phase.indexOf('design') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $('<li>').text('refine').addClass(phase.indexOf('test') >= 0 ? 'on' : 'off').appendTo($phases);
+                         $phases.appendTo('#answers');
+                         $('<p></p>').html({
+                             'requirements': 'These questions are usually asked <em>before</em> product definition starts.',
+                             'requirements,design': 'These questions are usually asked <em>before or during</em> product definition, while early design ideas develop.',
+                             'design': 'unused',
+                             'design,test': 'These questions are usually asked <em>after</em> basic requirements, while defining and iterating on the product.',
+                             'test': 'These questions are usually asked <em>while iterating on</em> the product.',
+                             'requirements,test': 'These questions are usually asked <em>before</em> product definition or after construction.',
+                             'requirements,design,test': 'These questions are asked during all phases of a product development.'
+                         }[phase]).appendTo('#answers');
 
-                             $('<div>').addClass('nib').css('borderRightColor', item.bubbleBackgroundColor).appendTo('#answers');
-                             
-                         }, 600);
+                         $('<div>').addClass('nib').css('borderRightColor', item.bubbleBackgroundColor).appendTo('#answers');
+
 
                      }).bind('passBy',
                             function(e, item) {
@@ -390,8 +388,7 @@ $(function() {
     });
 
 
-
-    $('#circle').trigger('spinTo',items[3].label);
+    $('#circle').trigger('spinTo', items[3].label);
 
 });
 

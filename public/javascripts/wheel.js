@@ -82,7 +82,7 @@ $.fn.wheel = function(values, options) {
                 console.log('mousewheel=' + delta);
                 stopInterval();
                 if (mousewheelTimeout) clearTimeout(mousewheelTimeout);
-                mousewheelTimeout = setTimeout(triggerFocusOn, 200);
+                mousewheelTimeout = setTimeout(triggerFocusOn, 400);
                 rotationAngle -= delta/15;
                 normalizeAngle(rotationAngle);
                 drawWheel();

@@ -30,7 +30,7 @@ $(function() {
             minHeight: 390,
             font: '18px/30px georgia',
             border: '1px 1px 1px 0 solid #666',
-            has: roundedCorners(10),
+            has: [roundedCorners(10), boxShadow([0,0], 10, bg.darken(30))],
             '.nib': {
                 position: 'absolute',
                 borderRight: '20px solid red',
@@ -391,7 +391,7 @@ $(function() {
 
 
 
-    $('#circle').trigger('spinTo',items[5].label);
+    $('#circle').trigger('spinTo',items[3].label);
 
 });
 

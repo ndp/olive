@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<title>Pattern / Damasco :: COLOURlovers</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Damasco pattern by nila. " />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="shortcut icon" href="http://static.colourlovers.com/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="http://static.colourlovers.com/images/v4.0/_/misc/apple-touch-icon.png" type="image/png" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://static.colourlovers.com/firefox/COLOURlovers.xml" title="COLOURlovers Palette Search" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://static.colourlovers.com/firefox/COLOURlovers_hex.xml" title="COLOURlovers Palette HEX Search" />
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.colourlovers.com/blog/atom" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/Colourlovers" />
+					<script type="text/javascript">
+						//<![CDATA[
+						var _lang	= "en-us";
+						var _cSV	= "v4.0";
+						//]]>
+					</script>
+<script type="text/javascript" src="http://static.colourlovers.com/js/v4.0/lib_p1.6.1_s1.8.3.js?1" charset="utf-8"></script>
+<script type="text/javascript" src="http://static.colourlovers.com/js/v4.0/global.js?9" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://static.colourlovers.com/css/v4.0/global.css?6" charset="utf-8" media="all" />
+<link rel="image_src" href="http://colourlovers.com.s3.amazonaws.com/images/patterns/14/14581.png" />
+</head>
+
+<body>
+<div class="header-shell">
+<div class="header">
+<a href="http://www.chromaom.com" class="chromaom-logo" title="CHROMAom">CHROMAom</a><div class="separator"></div><div id="log-in-drop-down"><div class="drop-down-left-cap"></div><div class="text"><a href="/login" onclick="return false;">Log In</a></div><div id="log-in-drop-down-arrow"></div><div class="drop-down-right-cap"></div></div><div class="sign-up-btn"><div class="sign-up-btn-left-cap"></div><div class="text"><a href="/register">Sign Up</a></div><div class="sign-up-btn-right-cap"></div></div><div id="log-in-drop-down-contents" style="display: none;"><form action="/op/log-in" method="post"><label for="userName-log-in">Username</label><input type="text"id="userName-log-in" name="userName" class="text" maxlength="20" /><div class="clear"></div><label for="password-log-in">Password</label><input type="password"id="password-log-in" name="userPassword" class="password" /><div class="clear shim"></div><a href="/lost/password" class="left link">Lost Password?</a><input type="image" src="http://static.colourlovers.com/images/v4.0/_/header/log-in-btn.png" class="right" value="Log In" /><a href="/register" class="right mr-5"><img src="http://static.colourlovers.com/images/v4.0/_/header/sign-up-btn.png" alt="Sign Up" /></a></form></div><a href="/" class="colourlovers-logo" title="Home">COLOURlovers</a></div></div>
+<div class="header-colors" style="background-image: url(http://static.colourlovers.com/images/v4.0/_/header/colors-bg.png?15100)"></div>
+<div class="nav">
+<ul>
+<li><a id="nav_0" href="/browse">Browse</a></li>
+<li><a id="nav_1" href="/create">Create</a></li>
+<li><a id="nav_2" href="#" onclick="return false;">Search</a></li>
+<li><a id="nav_3" href="/community">Community</a></li>
+<li><a id="nav_4" href="/channels">Channels</a></li>
+<li><a id="nav_5" href="/trends">Trends</a></li>
+<li><a id="nav_6" href="/tools">Tools</a></li>
+<li><a id="nav_7" href="/store">Store</a></li>
+</ul>
+<div id="sub-nav_0" class="sub-nav" style="display: none;"><span><a href="/palettes"><span></span>Palettes</a></span><span><a href="/patterns"><span></span>Patterns</a></span><span><a href="/colors"><span></span>Colors</a></span><span><a href="/lovers" class="last"><span></span>Lovers</a></span></div><div id="sub-nav_1" class="sub-nav" style="display: none;"><span><a href="/palettes/add"><span></span>Palette</a></span><span><a href="/patterns/add"><span></span>Pattern</a></span><span><a href="/colors/add" class="last"><span></span>Color</a></span></div><div id="sub-nav_2" class="sub-nav" style="display: none;"><span><a href="/palettes/search"><span></span>Palettes</a></span><span><a href="/patterns/search"><span></span>Patterns</a></span><span><a href="/colors/search"><span></span>Colors</a></span><span><a href="/lovers/search" class="last"><span></span>Lovers</a></span></div><div id="sub-nav_3" class="sub-nav" style="display: none;"><span><a href="/blog"><span></span>Blog</a></span><span><a href="/forums"><span></span>Forums</a></span><span><a href="/groups"><span></span>Groups</a></span><span><a href="/group/Sharing_the_Love" class="last"><span></span>FAQ</a></span></div><div id="sub-nav_4" class="sub-nav" style="display: none;"><span><a href="/business"><span></span>Business</a></span><span><a href="/craft"><span></span>Craft</a></span><span><a href="/fashion"><span></span>Fashion</a></span><span><a href="/home"><span></span>Home</a></span><span><a href="/print"><span></span>Print</a></span><span><a href="/web"><span></span>Web</a></span><span><a href="/wedding" class="last"><span></span>Wedding</a></span></div><div id="sub-nav_5" class="sub-nav" style="display: none;"><span><a href="/business/trends/branding"><span></span>Branding</a></span><span><a href="/craft/trends/handmade"><span></span>Handmade</a></span><span><a href="/home/trends/interior-looks"><span></span>Interior Looks</a></span><span><a href="/print/trends/magazines"><span></span>Magazines</a></span><span><a href="/fashion/trends/street-fashion"><span></span>Street Fashion</a></span><span><a href="/web/trends/websites"><span></span>Websites</a></span><span><a href="/wedding/trends/wedding-invites" class="last"><span></span>Wedding Invites</a></span></div><div id="sub-nav_6" class="sub-nav" style="display: none;"><span><a href="/blog/2009/12/01/colorschemer-studio-2-for-mac-colourlovers"><span></span>ColorSchemer</a></span><span><a href="/seamless"><span></span>Seamless</a></span><span><a href="/themeleon"><span></span>Themeleon</a></span><span><a href="/photocopa"><span></span>PHOTOCOPA</a></span><span><a href="/copaso/ColorPaletteSoftware"><span></span>COPASO</a></span><span><a href="/coty" class="last"><span></span>Color Of The Year</a></span></div><div id="sub-nav_7" class="sub-nav" style="display: none;"><span><a href="/store/software"><span></span>Software</a></span><span><a href="/store/fabric"><span></span>Fabric</a></span><span><a href="/store/art-print"><span></span>Art / Print</a></span><span><a href="/store/clothing" class="last"><span></span>Clothing</a></span></div></div>
+<div class="content">
+<div class="column-container"><div class="col-620 mr-20">
+<div class="dark-bg-content-container">
+<div class="sub-panel mb-0 mt-0 feature-detail-container">
+<h1>Damasco</h1><div class="feature-detail">
+<a href="#" onclick="patternImgDetail(14581); return false;" class="feature pointer" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/14/14581.png);"></a><div class="pattern-options">
+<a href="/patterns/search?patternDefinitionID=19" class="browse-similar-patterns"><span></span>Browse Similar Patterns</a><a href="/patterns/add?patternDefinitionID=19" class="create-pattern"><span></span>Create Pattern</a><div class="clear"></div></div></div><div class="feature-detail-stats big-number-label">
+<div class="mt-10" style="height: 48px;">
+<a href="#" id="love-this-btn_14581" onclick="addScore('n','14581','love-this-btn_14581','unlove-this-btn_14581','num-scores-count_14581'); return false;" class="love-this-btn"><span></span>Love This</a><a href="#" id="unlove-this-btn_14581" onclick="rmScore('n','14581','love-this-btn_14581','unlove-this-btn_14581','num-scores-count_14581'); return false;" class="unlove-this-btn" style="display: none;"><span></span>Loved</a><div class="clear"></div></div><h4 id="num-scores-count_14581">11</h4><h5>Love</h5><h4 class="pointer" onclick="window.location.href='#comments';">0</h4><h5 class="pointer" onclick="window.location.href='#comments';">Comments</h5><h4>747</h4><h5 class="mb-0">Views</h5><div class="clear"></div></div><div class="clear"></div></div></div><div class="tall-light-header"><h2>About This Pattern</h2></div><div class="dark-bg-content-container"><div class="padded-bordered-content feature-about"><div class="col-320"><a href="/lover/nila" class="avatar mr-10" title="nila"><span style="background-image: url(http://static.colourlovers.com/images/lovers/148/148280t.jpg?1289762743);"></span></a><div class="by left"><h3>By <a href="/lover/nila">nila</a></h3><span title="7 Jan, 2008 07:22:53">7 Jan, 2008</span><br />Original Pattern By: <a href="http://www.squidfingers.com/" target="_blank">Squidfingers</a></div></div><div class="col-240 tar" style="color: #b2b2b2;"><em class="ulc">747 COLOURlovers viewed this page and think <a href="/lover/nila" style="color: #b2b2b2;">nila</a> has rocked the world.</em></div><div class="clear"></div><div class="mb-20"></div><div class="left" style="width: 560px;"><h3 class="sub-panel-header">Rank</h3><div class="sub-panel-dark rank-display">
+<div class="col-90 big-number-label" style="width: 135px;">
+<h4><span>N/A</span></h4><h5>Today</h5></div><div class="col-90 big-number-label" style="width: 135px;">
+<h4><span>N/A</span></h4><h5>Week</h5></div><div class="col-90 big-number-label" style="width: 135px;">
+<h4>32,162</h4><h5>Month</h5></div><div class="col-90 big-number-label" style="width: 135px;">
+<h4>8,050</h4><h5>All-Time</h5></div><div class="clear"></div>
+</div></div><div class="clear"></div></div></div><div class="tall-light-header"><h2>Colors</h2></div><div class="dark-bg-content-container"><div class="padded-bordered-content detail-square-container"><div class="detail-row"><h3 class="left mr-10"><a href="/color/B01212/redDamasco1">redDamasco1</a></h3><div class="left username">by <a href="/lover/nila" class="lighter">nila</a></div><div class="clear"></div><a href="/color/B01212/redDamasco1" class="color" style="background-color: #B01212;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="meta"><div class="col-70 big-number-label">
+<h4>B01212</h4><h5>Hex</h5></div><div class="col-80 big-number-label">
+<h4>176/18/18</h4><h5>RGB</h5></div><div class="right-col big-number-label">
+<h4>3</h4><h5>Loves</h5></div><div class="right-col big-number-label">
+<h4>186</h4><h5>Views</h5></div><div class="right-col big-number-label">
+<h4>3</h4><h5>Followers</h5></div><div class="right-col big-number-label">
+<h4>2</h4><h5>Comments</h5></div><div class="clear"></div></div></div><div class="detail-row"><h3 class="left mr-10"><a href="/color/CF3C3C/xoxo">xoxo</a></h3><div class="left username">by <a href="/lover/arienette" class="lighter">arienette</a></div><div class="clear"></div><a href="/color/CF3C3C/xoxo" class="color" style="background-color: #CF3C3C;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="meta"><div class="col-70 big-number-label">
+<h4>CF3C3C</h4><h5>Hex</h5></div><div class="col-80 big-number-label">
+<h4>207/60/60</h4><h5>RGB</h5></div><div class="right-col big-number-label">
+<h4>6</h4><h5>Loves</h5></div><div class="right-col big-number-label">
+<h4>371</h4><h5>Views</h5></div><div class="right-col big-number-label">
+<h4>3</h4><h5>Followers</h5></div><div class="right-col big-number-label">
+<h4>2</h4><h5>Comments</h5></div><div class="clear"></div></div></div><div class="detail-row"><h3 class="left mr-10"><a href="/color/B8182B/redDamasco2">redDamasco2</a></h3><div class="left username">by <a href="/lover/nila" class="lighter">nila</a></div><div class="clear"></div><a href="/color/B8182B/redDamasco2" class="color" style="background-color: #B8182B;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="meta"><div class="col-70 big-number-label">
+<h4>B8182B</h4><h5>Hex</h5></div><div class="col-80 big-number-label">
+<h4>184/24/43</h4><h5>RGB</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Loves</h5></div><div class="right-col big-number-label">
+<h4>98</h4><h5>Views</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Followers</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Comments</h5></div><div class="clear"></div></div></div><div class="detail-row"><h3 class="left mr-10"><a href="/color/C72243/Hearts_and_Diamonds">Hearts and Diamonds</a></h3><div class="left username">by <a href="/lover/pyramus" class="lighter">pyramus</a></div><div class="clear"></div><a href="/color/C72243/Hearts_and_Diamonds" class="color" style="background-color: #C72243;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="meta"><div class="col-70 big-number-label">
+<h4>C72243</h4><h5>Hex</h5></div><div class="col-80 big-number-label">
+<h4>199/34/67</h4><h5>RGB</h5></div><div class="right-col big-number-label">
+<h4>3</h4><h5>Loves</h5></div><div class="right-col big-number-label">
+<h4>139</h4><h5>Views</h5></div><div class="right-col big-number-label">
+<h4>2</h4><h5>Followers</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Comments</h5></div><div class="clear"></div></div></div><div class="detail-row"><h3 class="left mr-10"><a href="/color/E8552C/redDamasco3">redDamasco3</a></h3><div class="left username">by <a href="/lover/nila" class="lighter">nila</a></div><div class="clear"></div><a href="/color/E8552C/redDamasco3" class="color" style="background-color: #E8552C;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="meta"><div class="col-70 big-number-label">
+<h4>E8552C</h4><h5>Hex</h5></div><div class="col-80 big-number-label">
+<h4>232/85/44</h4><h5>RGB</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Loves</h5></div><div class="right-col big-number-label">
+<h4>94</h4><h5>Views</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Followers</h5></div><div class="right-col big-number-label">
+<h4>0</h4><h5>Comments</h5></div><div class="clear"></div></div></div><div class="clear"></div></div></div><div class="comments" id="comments"><a name="comments"></a><div class="sub-header"><h2 style="margin-left: -10px;">Post a Comment</h2></div>
+<div class="content-panel comment-form-wide">
+<div class="ulc">You must be <a href="/login">logged in</a> to post a comment.</div></div></div>
+</div><div class="col-300">
+<div class="mb-20"><script type="text/javascript">
+<!--//<![CDATA[
+	var m3_u = (location.protocol=='https:'?'https://d1.openx.org/ajs.php':'http://d1.openx.org/ajs.php');
+	var m3_r = Math.floor(Math.random() * 99999999999);
+	if (!document.MAX_used) document.MAX_used = ',';
+	document.write('<scr' + 'ipt type="text/javascript" src="' + m3_u);
+	document.write('?zoneid=169871&amp;target=_blank');
+	document.write('&amp;cb=' + m3_r);
+	if (document.MAX_used != ',') document.write('&amp;exclude=' + document.MAX_used);
+	document.write('&amp;charset=UTF-8');
+	document.write('&amp;loc=' + escape(window.location));
+	if (document.referrer) document.write('&amp;referer=' + escape(document.referrer));
+	if (document.context) document.write('&context=' + escape(document.context));
+	if (document.mmm_fo) document.write('&amp;mmm_fo=1');
+	document.write ('"></scr' + 'ipt>');
+//]]>-->
+</script>
+<noscript><a href="http://d1.openx.org/ck.php?n=aa860bf5&amp;cb=1162056541" target="_blank"><img src="http://d1.openx.org/avw.php?zoneid=169871&amp;charset=UTF-8&amp;cb=1162056541&amp;n=a1bb9617" border="0" alt=" " /></a></noscript>
+</div><h3 class="sub-panel-header">Share This Pattern</h3><div class="sub-panel-dark">
+<h5 class="share-on">Share on</h5><a href="http://twitter.com/home?status=Cool%20Pattern%21%20Check%20out%20%22Damasco%22%20on%20%40COLOURlovers%3A%20http%3A%2F%2Fwww.colourlovers.com%2Fpattern%2F14581%2FDamasco" target="_blank" class="left mr-10"><img src="http://static.colourlovers.com/images/v4.0/_/btn/twitter.png" alt="Share" /></a><a href="#" onclick="var _width = 550, _height = 275, _pageSize = getPageSize(); window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.colourlovers.com%2Fpattern%2F14581%2FDamasco&amp;t=Damasco','facebook-share','height=' + _height.toString() + ',width=' + _width.toString() + ',left=' + Math.round((_pageSize[2] / 2) - (_width / 2)).toString() + ',top=' + Math.round((_pageSize[3] / 2) - (_height / 2)).toString()); return false;" class="left mr-10" target="_blank"><img src="http://static.colourlovers.com/images/v4.0/_/btn/facebook.png" alt="Share on Facebook" title="Share on Facebook" /></a>
+<a href="http://www.stumbleupon.com/submit/?url=http%3A%2F%2Fwww.colourlovers.com%2Fpattern%2F14581%2FDamasco" target="_blank" class="left mr-10"><img src="http://static.colourlovers.com/images/v4.0/_/btn/stumbleupon.png" alt="Share" /></a><a href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.colourlovers.com%2Fpattern%2F14581%2FDamasco&amp;title=Damasco" target="_blank" class="left mr-10"><img src="http://static.colourlovers.com/images/v4.0/_/btn/digg.png" alt="Share" /></a><a href="http://delicious.com/save?url=http%3A%2F%2Fwww.colourlovers.com%2Fpattern%2F14581%2FDamasco&amp;title=Damasco" target="_blank" class="left mr-10"><img src="http://static.colourlovers.com/images/v4.0/_/btn/delicious.png" alt="Share" /></a><div class="clear"></div><div class="mb-10"></div><h5>Grab this Badge Code</h5><input type="text" name="null" value="&lt;a href=&quot;http://www.colourlovers.com/pattern/14581/Damasco&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.colourlovers.com/images/badges/n/14/14581_Damasco.png&quot; style=&quot;width: 240px; height: 120px; border: 0 none;&quot; alt=&quot;Damasco&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span style=&quot;font-size: 10px; color: #5e5e5e;&quot;&gt;&lt;a href=&quot;http://www.colourlovers.com/color&quot; target=&quot;_blank&quot; style=&quot;font-size: 10px; color: #5e5e5e;&quot;&gt;Color&lt;/a&gt; by &lt;a href=&quot;http://www.colourlovers.com/&quot; target=&quot;_blank&quot; style=&quot;font-size: 10px; color: #5e5e5e;&quot;&gt;COLOURlovers&lt;/a&gt;&lt;/span&gt;" onclick="this.select();" class="badge-text-field" /><h5>Get this Pattern Image</h5><div class="wallpaper-links">						<script type="text/javascript">
+							//<![CDATA[
+							document.write("<" + "a href=\"/wallPaper/" + screen.width + "x" + screen.height + "/n/14581/COLOURlovers.com-Damasco.png\">Your Screen [" + screen.width + "x" + screen.height + "]<" + "\/a>");
+							//]]>
+						</script>
+<span class="slashes">//</span><a href="http://colourlovers.com.s3.amazonaws.com/images/patterns/14/14581.png" target="_blank">Preview</a><span class="slashes">//</span><a href="/wallPaper/320x480/n/14581/COLOURlovers.com-Damasco.png" target="_blank">iPhone</a><br /><a href="/wallPaper/390x300/n/14581/COLOURlovers.com-Damasco.png">390x300</a><span class="slashes">//</span><a href="/wallPaper/800x600/n/14581/COLOURlovers.com-Damasco.png">800x600</a><span class="slashes">//</span><a href="/wallPaper/1024x768/n/14581/COLOURlovers.com-Damasco.png">1024x768</a><span class="slashes">//</span><a href="/wallPaper/1600x1200/n/14581/COLOURlovers.com-Damasco.png">1600x1200</a><div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div><h3 class="sub-panel-header">Pattern Followers</h3><div id="feature-followers" class="sub-panel-dark" style="padding-bottom: 5px;"></div><h3 class="sub-panel-header">Tags</h3><span class="slashes">//</span><a href="#" onclick="alert('Coming very soon :-)'); return false;">Add a Tag +</a><div class="sub-panel-dark category-tag-list" style="padding-bottom: 5px;">
+<div class="clear"></div>
+No tags, add some!<div class="clear"></div>
+</div><h3 class="sub-panel-header">Latest Palettes</h3><span class="slashes">//</span><a href="/palettes/search/new">View More &#155;</a><div class="sub-panel-dark right-col" style="padding-bottom: 5px;">
+<div class="list-83-50">
+<a href="/palette/1356453/Margo" class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 20px; height: 50px; background-color: #DBAA6F;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 20px; height: 50px; background-color: #FBB67F;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 20px; height: 50px; background-color: #C1D9CC;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 23px; height: 50px; background-color: #A28CA3;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><a href="/palette/1356452/her_lipstick_stains" class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 2px; height: 50px; background-color: #E7FFED;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 56px; height: 50px; background-color: #A60000;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 4px; height: 50px; background-color: #D90024;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 8px; height: 50px; background-color: #80002C;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 13px; height: 50px; background-color: #280055;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><a href="/palette/1356451/Spinning" class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 7px; height: 50px; background-color: #C8C79D;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 26px; height: 50px; background-color: #72A89B;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 25px; height: 50px; background-color: #667C88;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 16px; height: 50px; background-color: #15064F;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 9px; height: 50px; background-color: #23060D;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><a href="/palette/1356450/of_course.." class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 41px; height: 50px; background-color: #8AE554;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 42px; height: 50px; background-color: #FFBFF2;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><a href="/palette/1356449/MY_EMO_SIDE_CHECK_IT" class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 16px; height: 50px; background-color: #790C46;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 16px; height: 50px; background-color: #000000;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 16px; height: 50px; background-color: #9B0053;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 16px; height: 50px; background-color: #6A5761;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 19px; height: 50px; background-color: #9D2955;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><a href="/palette/1356448/Curious" class="palette" style="width: 83px; height: 50px;"><span class="c" style="width: 32px; height: 50px; background-color: #35CECC;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 8px; height: 50px; background-color: #32B2A3;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 4px; height: 50px; background-color: #98F1ED;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 4px; height: 50px; background-color: #D7E0DB;"><span class="s" style="margin-top: 45px;"></span></span>
+<span class="c" style="width: 35px; height: 50px; background-color: #0B0A10;"><span class="s" style="margin-top: 45px;"></span></span>
+</a><div class="clear"></div>
+</div><div class="clear"></div>
+</div><h3 class="sub-panel-header">Latest Patterns</h3><span class="slashes">//</span><a href="/patterns/search/new">View More &#155;</a><div class="sub-panel-dark right-col" style="padding-bottom: 5px;">
+<div class="list-83-50">
+<a href="/pattern/1148738/Behind_the_Sofa" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148738.png);"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/pattern/1148737/autumn_abstract" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148737.png);"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/pattern/1148736/Cherry_Explosion" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148736.png);"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/pattern/1148735/Patagonia" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148735.png);"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/pattern/1148734/lucid_interval" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148734.png);"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/pattern/1148733/pink_paris" class="pattern" style="background-image: url(http://colourlovers.com.s3.amazonaws.com/images/patterns/1148/1148733.png);"><span style="height: 5px; margin-top: 45px;"></span></a><div class="clear"></div>
+</div><div class="clear"></div>
+</div><h3 class="sub-panel-header">Latest Colors</h3><span class="slashes">//</span><a href="/colors/search/new">View More &#155;</a><div class="sub-panel-dark right-col" style="padding-bottom: 4px;">
+<div class="list-83-50">
+<a href="/color/A28CA3/Buttonwillow" class="color" style="background-color: #A28CA3;"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/color/FBB67F/Mr._Allen" class="color" style="background-color: #FBB67F;"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/color/B41971/Ixmucane" class="color" style="background-color: #B41971;"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/color/171762/The_Wind_Winked" class="color" style="background-color: #171762;"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/color/8AE554/limen_green" class="color" style="background-color: #8AE554;"><span style="height: 5px; margin-top: 45px;"></span></a><a href="/color/9B0053/almost_adoration_@17" class="color" style="background-color: #9B0053;"><span style="height: 5px; margin-top: 45px;"></span></a><div class="clear"></div>
+</div><div class="clear"></div>
+</div></div><div class="clear"></div>
+</div></div>
+<div class="footer-shell">
+<div class="footer">
+<div class="col">
+<h2><a href="/browse" style="color: #cbb3b3;">Browse</a></h2>
+<ul style="color: #998787;"><li><div></div><a href="/colors">Colors</a></li><li><div></div><a href="/palettes">Palettes</a></li><li><div></div><a href="/patterns">Patterns</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/create" style="color: #cbbfb3;">Create</a></h2>
+<ul style="color: #999087;"><li><div></div><a href="/palettes/add">Palettes</a></li><li><div></div><a href="/patterns/add">Patterns</a></li><li><div></div><a href="/colors/add">Colors</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/community" style="color: #cbc6b3;">Community</a></h2>
+<ul style="color: #999587;"><li><div></div><a href="/forums">Forums</a></li><li><div></div><a href="/groups">Groups</a></li><li><div></div><a href="/lovers">Lovers</a></li><li><div></div><a href="/blog">Blog</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/channels" style="color: #c8cbb3;">Channels</a></h2>
+<ul style="color: #979987;"><li><div></div><a href="/business">Business</a></li><li><div></div><a href="/craft">Craft</a></li><li><div></div><a href="/fashion">Fashion</a></li><li><div></div><a href="/home">Home</a></li><li><div></div><a href="/print">Print</a></li><li><div></div><a href="/web">Web</a></li><li><div></div><a href="/wedding">Wedding</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/trends" style="color: #b3cbb3;">Trends</a></h2>
+<ul style="color: #879987;"><li><div></div><a href="/business/trends/branding">Branding</a></li><li><div></div><a href="/craft/trends/handmade">Handmade</a></li><li><div></div><a href="/home/trends/interior-looks">Interior Looks</a></li><li><div></div><a href="/print/trends/magazines">Magazines</a></li><li><div></div><a href="/fashion/trends/street-fashion">Street Fashion</a></li><li><div></div><a href="/web/trends/websites">Websites</a></li><li><div></div><a href="/wedding/trends/wedding-invites">Wedding Invites</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/tools" style="color: #b3c1cb;">Tools</a></h2>
+<ul style="color: #879199;"><li><div></div><a href="/blog/2009/12/01/colorschemer-studio-2-for-mac-colourlovers">ColorSchemer</a></li><li><div></div><a href="/seamless">Seamless</a></li><li><div></div><a href="/themeleon">Themeleon</a></li><li><div></div><a href="/photocopa">PHOTOCOPA</a></li><li><div></div><a href="/copaso/ColorPaletteSoftware">COPASO</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/store" style="color: #b7b3cb;">Store</a></h2>
+<ul style="color: #8a8799;"><li><div></div><a href="/store/software">Software</a></li><li><div></div><a href="/store/fabric">Fabric</a></li><li><div></div><a href="/store/art-print">Art / Print</a></li><li><div></div><a href="/store/clothing">Clothing</a></li></ul>
+</div>
+<div class="col">
+<h2><a href="/about" style="color: #cbb3c9;">About</a></h2>
+<ul style="color: #998797;"><li><div></div><a href="/partners">Advertise</a></li><li><div></div><a href="/about">About Us</a></li><li><div></div><a href="/contact">Contact Us</a></li><li><div></div><a href="/api">API</a></li><li><div></div><a href="/privacy">Terms</a></li><li><div></div><a href="/group/Sharing_the_Love">FAQ</a></li></ul>
+</div>
+<div class="clear"></div>
+<div class="bottom-copy">
+<div class="left">
+<strong>&copy; 2010 CHROMAom, Inc. All Rights Reserved</strong>
+<a href="/privacy">Privacy &amp; Terms of Use</a>
+<p class="cc">
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" target="_blank"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" alt="Creative Commons License" /></a>
+</p>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	buildAjaxUpdaterRequest('feature-followers','n/14581',1);
+//]]>
+</script>
+				<script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+				<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+				<noscript><img src="http://pixel.quantserve.com/pixel/p-0eUEUzVYOgu22.gif" style="display: none;" height="1" width="1" alt="Quantcast" /></noscript>
+					<script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script>
+				<script type="text/javascript">
+					//<![CDATA[
+					try {
+						reinvigorate.track("05072-x9uo90cy86");
+					} catch(err) {}
+
+					_qacct = "p-0eUEUzVYOgu22";
+					quantserve();
+						_uacct = "UA-731420-1";
+						urchinTracker();
+					//]]>
+				</script>
+
+<!-- 586:PRODUCTION:web02:10.16.59.136 -->
+</body>
+</html>

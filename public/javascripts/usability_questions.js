@@ -259,7 +259,7 @@ function generateUXQuestions() {
                     effort: 2
                 },
                 {
-                    name: 'individual interviews',
+                    name: 'individual user interviews',
                     phase: 'requirements,design',
                     eg: [
                         'understand_attitudes',
@@ -284,6 +284,20 @@ function generateUXQuestions() {
                     ],
                     ref: 'http://www.usability.gov/methods/analyze_current/learn/surveys.html',
                     effort: 2
+                },
+                {
+                    name: 'support team interviews (and conversations)',
+                    phase: 'test',
+                    egs: [
+                        'understand_product_suggestions',
+                        'right_info',
+                        'satisfied',
+                        'understand_product_frustrations',
+                            'understand_product_weaknesses',
+                            'right_ui'
+                    ],
+                    ref: '',
+                    effort: 1
                 },
                 {
                     name: 'support forums (yours and competitors)',

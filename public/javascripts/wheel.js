@@ -84,7 +84,7 @@ $.fn.wheel = function(values, options) {
                 if (mousewheelTimeout) clearTimeout(mousewheelTimeout);
                 mousewheelTimeout = setTimeout(triggerFocusOn, 400);
                 rotationAngle -= delta/15;
-                normalizeAngle(rotationAngle);
+                rotationAngle = normalizeAngle(rotationAngle);
                 drawWheel();
                 return false;
             });

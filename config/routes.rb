@@ -1,6 +1,7 @@
 Olive::Application.routes.draw do
   get "demo/index"
   get "demo/ux_wheel"
+  get "demo/boxes"
   get "demo/olive"
   root :to=>'demo#index'
 

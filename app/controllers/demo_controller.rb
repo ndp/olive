@@ -5,5 +5,7 @@ class DemoController < ApplicationController
   end
   def olive
   end
+  def boxes
+  end
 
 end

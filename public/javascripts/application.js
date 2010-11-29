@@ -62,10 +62,14 @@ if (typeof console == 'undefined') {
 
 
 $(function() {
+
+    var headlineFont = 'trebuchet ms';
+    var bodyFont = 'trebuchet ms';
     $.fn.boxes = function() {
 
         var settings = {
-            width: 200
+            height: 180,
+            width: 960 / 5
         };
 
         return $(this).each(function() {
@@ -78,6 +82,7 @@ $(function() {
 
             $this.addClass('boxes');
             $this.children().wrap('<div class="box"></div>');
+            $this.find('.double-wide').closest('.box').addClass('double-wide');
 
             var $new = $('<div class="box">');
 
@@ -88,10 +93,10 @@ $(function() {
                 } else {
                     var $last = $this.find('.box:last');
 
-                    $new.css({width: 0, backgroundColor: $last.css('backgroundColor')}).prependTo($this);
+                    $new.css({width: 0, backgroundColor: $last.css('backgroundColor')}).insertAfter($this.find('.box:nth(3)'));
 
                     $new.animate({width: settings.width}, 1000, function() {
-                        $last.prependTo($this);
+                        $last.insertAfter($new);
                         $new.remove();
                         setTimeout(slideInNew, 5000);
                     });
@@ -104,16 +109,37 @@ $(function() {
                                     function() {
                                         var wasFocused = $(this).hasClass('focused');
                                         $this.find('.focused').trigger('blur').removeClass('focused');
-                                        if (!wasFocused) {
+                                        if (wasFocused) {
+                                            $(this).trigger('blur').removeClass('focused');
+                                        } else {
                                             $(this).trigger('focus').addClass('focused');
-
-                                            var rowHt = $(this).find('[data-height]').attr('data-height');
-                                            $(this).attr('data-height', rowHt);
-                                            var rowWidth = $(this).find('[data-width]').attr('data-width');
-                                            $(this).attr('data-width', rowWidth);
                                         }
-                                    }).find('a').click(function() {
-                alert('here')
+                                    }).bind('focus',
+                                           function(e) {
+                                               console.log('focus %o', this);
+                                               $(this).attr('data-original-ht', $(this).innerHeight());
+                                               $(this).attr('data-original-wd', $(this).innerWidth());
+                                               var rowHt = $(this).find('[data-height]').attr('data-height');
+                                               var rowWidth = $(this).find('[data-width]').attr('data-width');
+
+                                               var css = {};
+                                               if ('2' == rowWidth) {
+                                                   css.width = settings.width * 2 -2
+                                               }
+                                               if ('2' == rowHt) {
+                                                   css.height = settings.height * 2 - 2
+                                               }
+                                               if ('3' == rowHt) {
+                                                   css.height = settings.height * 3 - 6
+                                               }
+                                               $(this).animate(css);
+
+                                           }).bind('blur', function(e) {
+
+                var css = {};
+                css.width = '' + $(this).attr('data-original-wd') + 'px';
+                css.height = '' + $(this).attr('data-original-ht') + 'px';
+                $(this).animate(css, 'slow');
             });
 
             Csster.style({
@@ -126,20 +152,10 @@ $(function() {
                         'float': 'left',
                         margin: 0,
                         padding: 0,
-                        height: 200,
-                        width: settings.width,
-                        '&.focused[data-width="2"]': {
-                            width: 400
-                        },
-                        '&.focused[data-width="3"]': {
-                            width: 600
-                        },
-                        '&.focused[data-height="2"]': {
-                            height: 400
-                        },
-                        '&.focused[data-height="3"]': {
-                            height: 600
-                        }
+                        height: settings.height - 2,
+                        width: settings.width - 2,
+                        border: '1px solid transparent',
+                        '&.double-wide': {width: settings.width * 2 - 2}
                     }
                 }
             });
@@ -149,32 +165,42 @@ $(function() {
     };
 
     $('div.boxes').children().prepend('<div class="bg"></div>');
-    $('div.boxes').boxes().find('.head:first').closest('.box').addClass('focused');
+    $('div.boxes').boxes();
+    $('div.boxes').find('a').attr('target', '_blank');
 
 
-
-
-    var classes = ['head','collaboration','dev_tool','visualization','cheatsheet','prototype']
-    var colors = ColorFactory.interpolate('#069','#ae6500',classes.length);
+    var classes = ['house','dev_tool','visualization','cheatsheet','prototype','collaboration'];
+    var colors = ColorFactory.interpolate('#ae6500', '#069', classes.length);
+    var colors = ['#045A8B','#3399cc','#990000','#A3CFE4','#006600','#cc6600']
 //    var colors = ColorFactory.interpolate('#eee','#999',classes.length);
     var css = {};
     for (var i in classes) {
         var cls = classes[i];
         var clr = colors[i];
-        css['.box .'+cls] = {
-            backgroundColor: bg = clr.saturate(-50).lighten(40),
-            color: clr
+        css['.box .' + cls] = {
+            backgroundColor: bg = clr,
+            color: clr.lighten(40)
         };
-        css['.box:hover .'+cls] = {
-            backgroundColor: bg = clr.saturate(-40).lighten(40),
-            color: clr
+        css['.box:hover .' + cls] = {
+            backgroundColor: bg = clr.saturate(10).darken(10),
+            color: clr.lighten(60)
         };
-        css['.box.focused .'+cls] = {
+        css['.box.focused .' + cls] = {
             h1: {
                 color: clr.lighten(80)
             },
             backgroundColor: bg = clr,
             color: clr.lighten(60)
+        };
+        css['.box .' + cls + ' a'] = {
+            backgroundColor: bg = clr.saturate(-20).lighten(20),
+            borderColor: bg = clr.saturate(0).lighten(30),
+            color: clr
+        };
+        css['.box .' + cls + ' a:hover'] = {
+            backgroundColor: bg = clr.saturate(0).lighten(20),
+            borderColor: bg = clr.saturate(0).lighten(50),
+            color: clr.lighten(50)
         };
     }
     Csster.style(css);
@@ -183,6 +209,7 @@ $(function() {
 //    console.log('%o',colors);
     Csster.style({
         '.box': {
+            cursor: 'pointer',
             '>div': {
                 height: '100%',
                 position: 'relative'
@@ -191,7 +218,7 @@ $(function() {
                 margin: 0,
                 marginLeft: 5,
                 padding: '25px 0 0 0',
-                font: '50px georgia',
+                font: '50px ' + headlineFont,
                 letterSpacing: 3,
                 '&.p2': {
                     textIndent: -200
@@ -202,36 +229,39 @@ $(function() {
                 paddingTop: 5,
                 marginLeft: 5,
                 padding: 0,
-                font: '25px georgia'
+                font: 'bold 20px ' + headlineFont
             },
             h4: {
-                margin: 0,
-                marginLeft: 5,
+                margin: '0 0 5px 5px',
                 padding: 0,
-                font: '15px georgia',
+                font: '14px ' + headlineFont,
                 visibility: 'hidden'
             },
             a: {
                 display: 'block',
-                margin: 0,
-                marginLeft: 5,
-                padding: 0,
-                font: '15px georgia',
+                margin: '0 auto 0 5px',
+                'float': 'left',
+                font: '14px ' + headlineFont,
                 color: 'white !important',
                 visibility: 'hidden',
+                border: '1px solid white',
+                padding: '3px 5px',
+                has: [roundedCorners(5)],
+                textDecoration: 'none',
                 zIndex: 100
             },
-            p: {
+            'p,ul': {
                 marginLeft: 5,
                 marginRight: 20,
-                fontSize: 15,
-                visibility: 'hidden'
+                visibility: 'hidden',
+                font: '14px ' + bodyFont
             },
             'div.tags': {
                 marginLeft: 5,
-                font: 'italic 11px georgia',
+                font: 'italic 11px ' + bodyFont,
                 position: 'absolute',
-                bottom: 5
+                bottom: 5,
+                visibility: 'hidden'
             },
             '.bg': {
                 position: 'absolute',
@@ -242,7 +272,7 @@ $(function() {
             },
             '&:hover': {
                 color: 'white !important',
-                h4: {
+                'h4,.tags': {
                     visibility: 'visible'
                 },
                 '.bg': {
@@ -251,10 +281,11 @@ $(function() {
             },
             '&.focused': {
                 color: 'white !important',
-                'h4,a,p': {
+                'h4,a,p,.tags,ul': {
                     visibility: 'visible'
                 },
                 '.bg': {
+                    display: 'none',
                     opacity: .1
                 }
             }
@@ -267,7 +298,7 @@ $(function() {
             } },
         '#show_char_limit': {
             '.bg': {
-                background: 'url(/images/portfolio/show_char_limit.png) no-repeat -100px 0px'
+//                background: 'url(/images/portfolio/show_char_limit.png) no-repeat -100px 0px'
             } },
         '#hibernate_mapping_cheatsheet': {
             '.bg': {
@@ -301,6 +332,21 @@ $(function() {
             '.bg': {
                 background: 'url(/images/portfolio/agile_methods.png)'
             }
+        },
+        '#so': {
+            '.bg': {
+//                background: 'url(http://stackoverflow.com/users/flair/114584.png) -78px 0'
+            }
+        },
+        '#title': {
+            backgroundColor: 'black',
+            '*': {
+                color: 'white',
+                visibility: 'visible'
+            }
+        },
+        '.box.focused #so': {
+//            backgroundColor: 'transparent'
         }
     });
 
